@@ -284,11 +284,14 @@ function checkSymptons(person) {
 }
 
 function notifyCase(person) {
-  const { path } = person;
+  const { path, name, age } = person;
 
   cases.push({
+    name,
+    age,
+    symptons: ["febre", "vomito"],
+    isSelected: false,
     path: [...path],
-    isSelected: false, // (to do) false
     color: getRandomColor(),
   });
 }

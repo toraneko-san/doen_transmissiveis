@@ -524,6 +524,7 @@ const locationsMap = [
     null,
   ],
 ];
+
 const locations = [
   { name: "Banheiro Público", diseases: [13, 14] },
   { name: "Bar", diseases: [1, 7, 13] },

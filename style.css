@@ -130,6 +130,59 @@ canvas:hover {
   opacity: 0.8;
 }
 
+.cases-menu,
+.manual-menu,
+.answer-menu {
+  position: absolute;
+}
+
+.cases-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  border-right: 0.5vw solid #0f0f0f;
+  border-bottom: 0.5vw solid #0f0f0f;
+  border-left: 0.5vw solid #5f5f5f;
+  border-top: 0.5vw solid #8f8f8f;
+  background-color: #afafaf;
+  padding: 2vw;
+  height: 90vh;
+  width: 40vw;
+}
+
+.cases-menu h2 {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 3vw;
+}
+
+.cases-list {
+  flex: 1;
+  border-right: 0.5vw solid #0f0f0f;
+  border-bottom: 0.5vw solid #0f0f0f;
+  border-left: 0.5vw solid #5f5f5f;
+  border-top: 0.5vw solid #8f8f8f;
+}
+
+.case-detail {
+  height: 20vh;
+  border-right: 0.5vw solid #0f0f0f;
+  border-bottom: 0.5vw solid #0f0f0f;
+  border-left: 0.5vw solid #5f5f5f;
+  border-top: 0.5vw solid #8f8f8f;
+}
+
+.answer-menu {
+  height: 90vh;
+  width: 40vw;
+  background-color: red;
+}
+
+.manual-menu {
+  height: 90vh;
+  width: 66vw;
+  background-color: red;
+}
+
 .hide {
   display: none;
 }
