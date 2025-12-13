@@ -91,10 +91,6 @@ canvas:hover {
   cursor: pointer;
 }
 
-.hide {
-  display: none;
-}
-
 .player-menu {
   position: absolute;
   right: 15vw;
@@ -131,4 +127,8 @@ canvas:hover {
 
 .player-menu-btn:hover img {
   opacity: 0.8;
+}
+
+.hide {
+  display: none;
 }

@@ -19,7 +19,7 @@ function animate() {
   for (let i = 0; i < people.length; i++) {
     const person = people[i];
 
-    if (playerMenu.pause == true) {
+    if (playerMenuState.pause == true) {
       drawPerson(person);
       continue;
     }
@@ -460,9 +460,22 @@ window.addEventListener("load", prepareGame);
 //////////////////////////////////////////////////////
 const startButton = document.querySelector(".start-btn");
 const mainMenu = document.querySelector(".main-menu");
+const playerMenu = document.querySelector(".player-menu");
+const pauseBtn = document.querySelector(".pause-btn");
+const casesBtn = document.querySelector(".cases-btn");
+const manualBtn = document.querySelector(".manual-btn");
+const answerBtn = document.querySelector(".answer-btn");
+const settingsBtn = document.querySelector(".settings-btn");
 
 function start() {
   mainMenu.classList.add("hide");
+  playerMenu.classList.remove("hide");
+  pauseBtn.addEventListener("click", togglePause);
+  casesBtn.addEventListener("click", toggleCases);
+  manualBtn.addEventListener("click", toggleManual);
+  answerBtn.addEventListener("click", toggleAnswer);
+  settingsBtn.addEventListener("click", toggleSettings);
+
   setTimeout(() => (isGameStart = true), 2500);
 }
 
