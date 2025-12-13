@@ -27,13 +27,14 @@ function animate() {
     if (person.isInLocation == true) continue;
 
     if (person.progress >= 1) {
+      savePath(person);
+
       checkLocation(person);
       checkFocusLocation(person);
-
       checkSymptons(person);
+
       reduceThreshold(person);
 
-      savePath(person);
       findNextTile(person);
     }
 
@@ -263,7 +264,8 @@ function checkSymptons(person) {
   const locationId = locationsMap[row][col];
 
   if (locationId == null) return;
-  // if (person.visitedLocations.includes(selectedLocationId)) return;
+  if (locationId == selectedLocationId) return;
+  if (person.visitedLocations.includes(locationId)) return;
 
   const risk = Math.random();
   // console.log("-------");
@@ -271,8 +273,10 @@ function checkSymptons(person) {
   // console.log(person.onsetThreshold);
 
   if (risk > onsetThreshold) {
+    person.path.push(person.nextTile);
     person.hasSymptons = true;
     person.isInfected = false;
+    savePath(person);
     notifyCase(person);
     // console.log(person.path);
     // setTimeout(() => notifyCase(person), Math.random() * 5000);

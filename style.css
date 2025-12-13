@@ -112,6 +112,7 @@ canvas:hover {
   padding: 0.2vw;
   aspect-ratio: 1;
   width: 4vw;
+  user-select: none;
 }
 
 .player-menu-btn:hover {
