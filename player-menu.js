@@ -101,6 +101,7 @@ function showCaseDetail(diseaseCase) {
     <p>Nome: ${diseaseCase.name}</p>
     <p>Descrição: ${diseaseCase.description}</p>
     <p>Idade: ${diseaseCase.age}</p>
+    <p>Sintomas: ${diseaseCase.symptoms.join(", ")}</p>
   `;
 }
 //////////////////////////////////////////////////////
