@@ -2,11 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
-  overflow: none;
+  width: 100vw;
+  height: 100vh;
   background-color: #1f1f1f;
+  overflow: hidden;
 }
 
 canvas {
@@ -14,9 +17,6 @@ canvas {
   margin: auto;
   width: 70vw;
   height: 100vh;
-}
-
-canvas:hover {
   cursor: grab;
 }
 
@@ -46,7 +46,6 @@ canvas:hover {
   position: relative;
   font-size: 10vw;
   text-align: center;
-  user-select: none;
   animation: updown 2s linear infinite;
 }
 
@@ -82,7 +81,6 @@ canvas:hover {
   font-family: "Press Start 2P", system-ui;
   font-size: 2vw;
   font-weight: 500;
-  user-select: none;
 }
 
 .main-menu-btn:hover {
@@ -112,7 +110,6 @@ canvas:hover {
   padding: 0.2vw;
   aspect-ratio: 1;
   width: 4vw;
-  user-select: none;
 }
 
 .player-menu-btn:hover {
@@ -148,9 +145,11 @@ canvas:hover {
   padding: 2vw;
   height: 90vh;
   width: 40vw;
+  cursor: grab;
 }
 
 .cases-menu h2 {
+  width: fit-content;
   font-family: "Press Start 2P", system-ui;
   font-size: 3vw;
 }
@@ -188,7 +187,7 @@ canvas:hover {
 }
 
 #answerLeaf {
-  position: relative; 
+  position: relative;
   padding: 2rem;
 }
 
@@ -199,8 +198,8 @@ canvas:hover {
 #closeAnswer {
   font-family: "Press Start 2P", system-ui;
   position: relative;
-  bottom: 0.5rem;  
-  right: 1rem;  
+  bottom: 0.5rem;
+  right: 1rem;
   border-right: 0.5vw solid #0f0f0f;
   border-bottom: 0.5vw solid #0f0f0f;
   border-left: 0.5vw solid #5f5f5f;
@@ -220,27 +219,24 @@ canvas:hover {
   border-top: 0.5vw solid #8f8f8f;
 }
 
-.hide {
-  display: none;
-}
-
-
 #lists-container {
   font-family: "Press Start 2P", system-ui;
-  display: flex; 
-  justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
 }
 
-#diseases-list, #locations-list {
-  list-style-type: none; 
+#diseases-list,
+#locations-list {
+  list-style-type: none;
   padding: 0;
   margin: 0;
-  width: 45%; 
+  width: 45%;
   font-size: 0.5rem;
   cursor: pointer;
 }
 
-#diseases-list li, #locations-list li {
+#diseases-list li,
+#locations-list li {
   padding: 5px;
   border-bottom: 1px solid #ddd;
 }
@@ -270,4 +266,12 @@ canvas:hover {
 #diseases-list li span,
 #locations-list li span {
   cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.grabbing {
+  cursor: grabbing;
 }

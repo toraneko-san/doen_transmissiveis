@@ -5,7 +5,8 @@ const nCols = 26; // 27 - 1
 // const map = new Array(nRows).fill().map(() => new Array(nCols).fill(0));
 
 const offset = { x: 0, y: 0 };
-let isDraggin = false;
+let isDragginMap = false;
+let isDragginPlayerMenu = false;
 const mouseStartPos = { x: undefined, y: undefined };
 
 const map = [

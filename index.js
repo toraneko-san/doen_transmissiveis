@@ -278,8 +278,6 @@ function checkSymptons(person) {
     person.isInfected = false;
     savePath(person);
     notifyCase(person);
-    // console.log(person.path);
-    // setTimeout(() => notifyCase(person), Math.random() * 5000);
   }
 }
 
@@ -301,7 +299,7 @@ function notifyCase(person) {
     possibleSymptons[randomSymptonId] = null;
   } while (symptons.length !== symptonsCount);
 
-  console.log("Caso:")
+  console.log("Caso:");
   console.log(symptons);
 
   cases.push({
@@ -390,53 +388,19 @@ function getRandomColor() {
 //////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////
-canvas.addEventListener("mousedown", (event) => {
-  const { clientX, clientY } = event;
-  mouseStartPos.x = clientX;
-  mouseStartPos.y = clientY;
-  isDraggin = true;
-});
-
-window.addEventListener("mouseup", () => {
-  // console.log(map)
-  isDraggin = false;
-});
-
-canvas.addEventListener("mousemove", (event) => {
-  if (isDraggin == false) return;
-
-  const { clientX, clientY } = event;
-  offset.x = offset.x + (clientX - mouseStartPos.x);
-  offset.y = offset.y + (clientY - mouseStartPos.y);
-
-  if (offset.x > 0) offset.x = 0;
-  if (offset.x < -(Math.ceil(nCols / 2) * tileWidth) + canvas.width)
-    offset.x = -(Math.ceil(nCols / 2) * tileWidth) + canvas.width;
-  if (offset.y > 0) offset.y = 0;
-  if (offset.y < -(nRows * tileHeight + tileHeight / 2) + canvas.height)
-    offset.y = -(nRows * tileHeight + tileHeight / 2) + canvas.height;
-
-  mouseStartPos.x = clientX;
-  mouseStartPos.y = clientY;
-});
-//////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////
-function resizeCanvas() {
+function resize() {
   // size canvas with CSS values
   canvas.width = Math.min(canvas.scrollWidth, mapImg.width);
   canvas.height = Math.min(canvas.scrollHeight, mapImg.height);
 
-  if (offset.x > 0) offset.x = 0;
-  if (offset.x < -(Math.ceil(nCols / 2) * tileWidth) + canvas.width)
-    offset.x = -(Math.ceil(nCols / 2) * tileWidth) + canvas.width;
-  if (offset.y > 0) offset.y = 0;
-  if (offset.y < -(nRows * tileHeight + tileHeight / 2) + canvas.height)
-    offset.y = -(nRows * tileHeight + tileHeight / 2) + canvas.height;
+  setMapLimit();
+  moveCasesMenu();
+  moveManualMenu();
+  moveAnswerMenu();
 }
 
 function prepareGame() {
-  resizeCanvas();
+  resize();
 
   for (let i = 0; i < people.length; i++) {
     const person = people[i];
@@ -475,13 +439,13 @@ function prepareGame() {
   );
   selectedDiseaseId = locations[selectedLocationId].diseases[randomDiseasePos];
 
-  console.log("local", selectedLocationId, "doenca", diseases[selectedDiseaseId].name);
-  // console.log(locations[selectedLocationId].diseases);
+  console.log("local", selectedLocationId);
+  console.log("doenca", diseases[selectedDiseaseId].name);
 
   animate();
 }
 
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize", resize);
 window.addEventListener("load", prepareGame);
 //////////////////////////////////////////////////////
 
@@ -504,12 +468,53 @@ function start() {
   answerBtn.addEventListener("click", toggleAnswer);
   settingsBtn.addEventListener("click", toggleSettings);
 
-  setTimeout(() => (isGameStart = true), 2500);
+  isGameStart = true;
 }
 
 startButton.addEventListener("click", start);
 
 //////////////////////////////////////////////////////
+const casesMenu = document.querySelector(".cases-menu");
+const manualMenu = document.querySelector(".manual-menu");
+const answerMenu = document.querySelector(".answer-menu");
+
+canvas.addEventListener("mousedown", (event) => {
+  const { clientX, clientY } = event;
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+
+  isDragginMap = true;
+  canvas.classList.add("grabbing");
+});
+
+window.addEventListener("mouseup", () => {
+  // console.log(map)
+  isDragginMap = false;
+  isDragginPlayerMenu = false;
+  canvas.classList.remove("grabbing");
+});
+
+function setMapLimit() {
+  if (offset.x > 0) offset.x = 0;
+  if (offset.x < -(Math.ceil(nCols / 2) * tileWidth) + canvas.width)
+    offset.x = -(Math.ceil(nCols / 2) * tileWidth) + canvas.width;
+  if (offset.y > 0) offset.y = 0;
+  if (offset.y < -(nRows * tileHeight + tileHeight / 2) + canvas.height)
+    offset.y = -(nRows * tileHeight + tileHeight / 2) + canvas.height;
+}
+
+canvas.addEventListener("mousemove", (event) => {
+  if (isDragginMap == false) return;
+
+  const { clientX, clientY } = event;
+  offset.x = offset.x + (clientX - mouseStartPos.x);
+  offset.y = offset.y + (clientY - mouseStartPos.y);
+
+  setMapLimit();
+
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+});
 
 //////////////////////////////////////////////////////
 // canvas.addEventListener("click", (event) => {

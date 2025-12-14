@@ -35,7 +35,6 @@ function togglePause() {
 }
 //////////////////////////////////////////////////////
 function toggleCases() {
-  const casesMenu = document.querySelector(".cases-menu");
   const icon = document.querySelector(".cases-btn img");
 
   if (playerMenuState.cases == true) {
@@ -44,8 +43,7 @@ function toggleCases() {
     playerMenuState.cases = false;
   } else if (playerMenuState.cases == false) {
     casesMenu.classList.remove("hide");
-    casesMenu.style.top = `${playerMenuPos.cases.y}px`;
-    casesMenu.style.left = `${playerMenuPos.cases.x}px`;
+    moveCasesMenu();
     icon.src = "assets/icons/cases-open.png";
     playerMenuState.cases = true;
   }
@@ -82,7 +80,6 @@ function showCaseDetail(diseaseCase) {
 }
 //////////////////////////////////////////////////////
 function toggleManual() {
-  const manualMenu = document.querySelector(".manual-menu");
   const icon = document.querySelector(".manual-btn img");
 
   if (playerMenuState.manual == true) {
@@ -122,3 +119,90 @@ function toggleSettings() {
     playerMenuState.settings = true;
   }
 }
+
+//////////////////////////////////////////////////////
+function moveCasesMenu() {
+  casesMenu.classList.add("grabbing");
+  setPlayerMenuLimit("cases", casesMenu);
+
+  casesMenu.style.top = `${playerMenuPos.cases.y}px`;
+  casesMenu.style.left = `${playerMenuPos.cases.x}px`;
+}
+
+function moveManualMenu() {
+  manualMenu.classList.add("grabbing");
+  setPlayerMenuLimit("manual", manualMenu);
+
+  manualMenu.style.top = `${playerMenuPos.manual.y}px`;
+  manualMenu.style.left = `${playerMenuPos.manual.x}px`;
+}
+
+function moveAnswerMenu() {
+  answerMenu.classList.add("grabbing");
+  setPlayerMenuLimit("answer", answerMenu);
+
+  answerMenu.style.top = `${playerMenuPos.answer.y}px`;
+  answerMenu.style.left = `${playerMenuPos.answer.x}px`;
+}
+
+function setPlayerMenuLimit(menuType, menu) {
+  const menuPos = playerMenuPos[menuType];
+
+  if (menuPos.x < -menu.offsetWidth + 0.1 * window.innerWidth)
+    menuPos.x = -menu.offsetWidth + 0.1 * window.innerWidth;
+  if (menuPos.x > 0.9 * window.innerWidth) menuPos.x = 0.9 * window.innerWidth;
+  if (menuPos.y < -menu.offsetHeight + 0.1 * window.innerHeight)
+    menuPos.y = -menu.offsetHeight + 0.1 * window.innerHeight;
+  if (menuPos.y > 0.9 * window.innerHeight)
+    menuPos.y = 0.9 * window.innerHeight;
+}
+
+function startDragPlayerMenu(event) {
+  const { clientX, clientY } = event;
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+  isDragginPlayerMenu = true;
+}
+function dragPlayerMenu(event, menuType) {
+  if (isDragginPlayerMenu == false) return;
+
+  const { clientX, clientY } = event;
+
+  const menuPos = playerMenuPos[menuType];
+  menuPos.x = menuPos.x + (clientX - mouseStartPos.x);
+  menuPos.y = menuPos.y + (clientY - mouseStartPos.y);
+
+  if (menuType == "cases") moveCasesMenu();
+  if (menuType == "manual") moveManualMenu();
+  if (menuType == "answer") moveAnswerMenu();
+
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+}
+
+casesMenu.addEventListener("mouseup", () => {
+  isDragginPlayerMenu = false;
+  casesMenu.classList.remove("grabbing");
+});
+casesMenu.addEventListener("mousedown", startDragPlayerMenu);
+casesMenu.addEventListener("mousemove", (event) =>
+  dragPlayerMenu(event, "cases")
+);
+
+manualMenu.addEventListener("mouseup", () => {
+  isDragginPlayerMenu = false;
+  manualMenu.classList.remove("grabbing");
+});
+manualMenu.addEventListener("mousedown", startDragPlayerMenu);
+manualMenu.addEventListener("mousemove", (event) =>
+  dragPlayerMenu(event, "manual")
+);
+
+answerMenu.addEventListener("mouseup", () => {
+  isDragginPlayerMenu = false;
+  answerMenu.classList.remove("grabbing");
+});
+answerMenu.addEventListener("mousedown", startDragPlayerMenu);
+answerMenu.addEventListener("mousemove", (event) =>
+  dragPlayerMenu(event, "answer")
+);
