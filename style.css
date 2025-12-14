@@ -186,3 +186,10 @@ canvas:hover {
 .hide {
   display: none;
 }
+
+.toggle-path {
+  font-size: 1.5vw;
+  color: rgb(0, 225, 255);
+  text-decoration: underline;
+  cursor: pointer;
+}
