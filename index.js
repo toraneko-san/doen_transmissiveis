@@ -51,72 +51,72 @@ function drawBackground() {
   const mapHeight = nRows * tileHeight + tileHeight / 2;
   ctx.clearRect(0, 0, mapWidth, mapHeight);
 
-  // ctx.drawImage(mapImg, offset.x, offset.y);
+  ctx.drawImage(mapImg, offset.x, offset.y);
 
-  for (let row = 0; row < nRows; row++) {
-    for (let col = 0; col < nCols; col++) {
-      if (map[row][col] == 0) continue;
-      const x = tileWidth * (col / 2);
-      const y =
-        col % 2 == 0 ? tileHeight * row : tileHeight * row + tileHeight / 2;
+  // for (let row = 0; row < nRows; row++) {
+  //   for (let col = 0; col < nCols; col++) {
+  //     if (map[row][col] == 0) continue;
+  //     const x = tileWidth * (col / 2);
+  //     const y =
+  //       col % 2 == 0 ? tileHeight * row : tileHeight * row + tileHeight / 2;
 
-      ctx.beginPath();
+  //     ctx.beginPath();
 
-      if (col % 2 == 0) {
-        if (map[row - 1]?.[col - 1] != 1) {
-          ctx.moveTo(x + offset.x, y + tileHeight / 2 + offset.y);
-          ctx.lineTo(x + offset.x + tileWidth / 2, y + offset.y);
-        }
+  //     if (col % 2 == 0) {
+  //       if (map[row - 1]?.[col - 1] != 1) {
+  //         ctx.moveTo(x + offset.x, y + tileHeight / 2 + offset.y);
+  //         ctx.lineTo(x + offset.x + tileWidth / 2, y + offset.y);
+  //       }
 
-        if (map[row - 1]?.[col + 1] != 1) {
-          ctx.moveTo(x + offset.x + tileWidth / 2, y + offset.y);
-          ctx.lineTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
-        }
+  //       if (map[row - 1]?.[col + 1] != 1) {
+  //         ctx.moveTo(x + offset.x + tileWidth / 2, y + offset.y);
+  //         ctx.lineTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
+  //       }
 
-        if (map[row][col + 1] != 1) {
-          ctx.moveTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
-          ctx.lineTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
-        }
+  //       if (map[row][col + 1] != 1) {
+  //         ctx.moveTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
+  //         ctx.lineTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
+  //       }
 
-        if (map[row][col - 1] != 1) {
-          ctx.moveTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
-          ctx.lineTo(x + offset.x, y + tileHeight / 2 + offset.y);
-        }
-      } else {
-        if (map[row][col - 1] != 1) {
-          ctx.moveTo(x + offset.x, y + tileHeight / 2 + offset.y);
-          ctx.lineTo(x + offset.x + tileWidth / 2, y + offset.y);
-        }
+  //       if (map[row][col - 1] != 1) {
+  //         ctx.moveTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
+  //         ctx.lineTo(x + offset.x, y + tileHeight / 2 + offset.y);
+  //       }
+  //     } else {
+  //       if (map[row][col - 1] != 1) {
+  //         ctx.moveTo(x + offset.x, y + tileHeight / 2 + offset.y);
+  //         ctx.lineTo(x + offset.x + tileWidth / 2, y + offset.y);
+  //       }
 
-        if (map[row][col + 1] != 1) {
-          ctx.moveTo(x + offset.x + tileWidth / 2, y + offset.y);
-          ctx.lineTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
-        }
+  //       if (map[row][col + 1] != 1) {
+  //         ctx.moveTo(x + offset.x + tileWidth / 2, y + offset.y);
+  //         ctx.lineTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
+  //       }
 
-        if (map[row + 1]?.[col + 1] != 1) {
-          ctx.moveTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
-          ctx.lineTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
-        }
+  //       if (map[row + 1]?.[col + 1] != 1) {
+  //         ctx.moveTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
+  //         ctx.lineTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
+  //       }
 
-        if (map[row + 1]?.[col - 1] != 1) {
-          ctx.moveTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
-          ctx.lineTo(x + offset.x, y + tileHeight / 2 + offset.y);
-        }
-      }
+  //       if (map[row + 1]?.[col - 1] != 1) {
+  //         ctx.moveTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
+  //         ctx.lineTo(x + offset.x, y + tileHeight / 2 + offset.y);
+  //       }
+  //     }
 
-      ctx.lineWidth = 5;
-      ctx.strokeStyle = "#000";
-      ctx.stroke();
+  //     ctx.lineWidth = 5;
+  //     ctx.strokeStyle = "#000";
+  //     ctx.stroke();
 
-      // ctx.fillStyle = "#000";
-      // ctx.textAlign = "center";
-      // ctx.fillText(
-      //   `${row}, ${col}`,
-      //   x + tileWidth / 2 + offset.x,
-      //   y + tileHeight / 2 + offset.y
-      // );
-    }
-  }
+  //     // ctx.fillStyle = "#000";
+  //     // ctx.textAlign = "center";
+  //     // ctx.fillText(
+  //     //   `${row}, ${col}`,
+  //     //   x + tileWidth / 2 + offset.x,
+  //     //   y + tileHeight / 2 + offset.y
+  //     // );
+  //   }
+  // }
 
   for (let row = 0; row < nRows; row++) {
     for (let col = 0; col < nCols; col++) {
@@ -301,7 +301,7 @@ function notifyCase(person) {
     possibleSymptons[randomSymptonId] = null;
   } while (symptons.length !== symptonsCount);
 
-  console.log(symptonsCount);
+  console.log("Caso:")
   console.log(symptons);
 
   cases.push({
@@ -475,8 +475,8 @@ function prepareGame() {
   );
   selectedDiseaseId = locations[selectedLocationId].diseases[randomDiseasePos];
 
-  console.log(selectedLocationId, selectedDiseaseId);
-  console.log(locations[selectedLocationId].diseases);
+  console.log("local", selectedLocationId, "doenca", diseases[selectedDiseaseId].name);
+  // console.log(locations[selectedLocationId].diseases);
 
   animate();
 }
