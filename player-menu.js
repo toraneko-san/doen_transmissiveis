@@ -64,45 +64,31 @@ function showCasesList() {
     const { name, isSelected } = cases[i];
 
     casesList.innerHTML += `
-        <div class="">${name}<div>
-        <div class="" onClick="togglePath(cases[i])">${name}<div>
-        <div class="" onClick="showCaseDetail(cases[i])">${name}<div>
+        <div>${name}<div>
+        <div onClick="togglePath(cases[${i}])">caminho temp<div>
+        <div onClick="showCaseDetail(cases[${i}])">detalhe temp<div>
     `;
   }
   //
 }
 
+// essa funcao esta pronta!
 function togglePath(diseaseCase) {
-diseaseCase.isSelected = !diseaseCase.isSelected;
-
-  // procura o caminho correspondente
-  const path = document.querySelector(
-    `.case-path[data-case-id="${diseaseCase.id}"]`
-  );
-
-  if (!path) {
-    console.warn("Caminho não encontrado:", diseaseCase.id);
-    return;
-  }
-
-  // mostra ou esconde
-  path.style.display = diseaseCase.isSelected ? "block" : "none";
+  diseaseCase.isSelected = !diseaseCase.isSelected;
 
   // atualiza a lista
   showCasesList();
 }
 
 function showCaseDetail(diseaseCase) {
-   const caseDetail = document.querySelector(".case-detail");
+  const caseDetail = document.querySelector(".case-detail");
   caseDetail.style.display = "block";
 
   caseDetail.innerHTML = `
     <h3>Detalhes do Caso</h3>
     <p>Nome: ${diseaseCase.name}</p>
-    <p>Descrição: ${diseaseCase.description}</p>
     <p>Idade: ${diseaseCase.age}</p>
     <p>Sintomas: ${diseaseCase.symptoms.join(", ")}</p>
-    
   `;
 }
 //////////////////////////////////////////////////////

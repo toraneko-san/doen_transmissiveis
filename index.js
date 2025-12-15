@@ -32,7 +32,7 @@ function animate() {
 
       checkLocation(person);
       checkFocusLocation(person);
-      checkSymptons(person);
+      checkSymptoms(person);
 
       reduceThreshold(person);
 
@@ -200,7 +200,7 @@ function drawPerson(person) {
 
   if (person.isInfected != true) ctx.fillStyle = "#000";
   // if (person.isInfected == true) ctx.fillStyle = "#0f0";
-  if (person.hasSymptons == true) ctx.fillStyle = "#f00";
+  if (person.hasSymptoms == true) ctx.fillStyle = "#f00";
   ctx.fill();
 }
 
@@ -221,7 +221,7 @@ function checkLocation(person) {
 }
 
 function savePath(person) {
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
   if (isGameStart == false)
     person.path = person.path.filter((_, i) => person.path.length - i < 20);
   person.path.push(person.currentTile);
@@ -230,7 +230,7 @@ function savePath(person) {
 // reduce threshold every time person visits new location after focus location
 function reduceThreshold(person) {
   if (person.isInfected == false) return;
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
   const { row, col } = person.currentTile;
   const locationId = locationsMap[row][col];
 
@@ -244,7 +244,7 @@ function reduceThreshold(person) {
 function checkFocusLocation(person) {
   if (isGameStart == false) return;
   if (person.isInfected == true) return;
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
 
   const { nextTile } = person;
   const { row, col } = nextTile;
@@ -256,9 +256,9 @@ function checkFocusLocation(person) {
   person.isInfected = true;
 }
 
-function checkSymptons(person) {
+function checkSymptoms(person) {
   if (person.isInfected == false) return;
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
 
   const { nextTile, onsetThreshold } = person;
   const { row, col } = nextTile;
@@ -275,7 +275,7 @@ function checkSymptons(person) {
 
   if (risk > onsetThreshold) {
     person.path.push(person.nextTile);
-    person.hasSymptons = true;
+    person.hasSymptoms = true;
     person.isInfected = false;
     savePath(person);
     notifyCase(person);
@@ -285,28 +285,28 @@ function checkSymptons(person) {
 function notifyCase(person) {
   const { path, name, age } = person;
 
-  const possibleSymptons = [...diseases[selectedDiseaseId].symptons];
-  const symptons = [];
-  const symptonsCount = Math.floor(Math.random() * 2 + 2);
+  const possibleSymptoms = [...diseases[selectedDiseaseId].symptoms];
+  const symptoms = [];
+  const symptomsCount = Math.floor(Math.random() * 2 + 2);
 
   do {
     const randomSymptonId = Math.floor(
-      Math.random() * (possibleSymptons.length - 0.1) + 0.09
+      Math.random() * (possibleSymptoms.length - 0.1) + 0.09
     );
-    const randomSympton = possibleSymptons[randomSymptonId];
+    const randomSympton = possibleSymptoms[randomSymptonId];
     if (randomSympton == null) continue;
 
-    symptons.push(randomSympton);
-    possibleSymptons[randomSymptonId] = null;
-  } while (symptons.length !== symptonsCount);
+    symptoms.push(randomSympton);
+    possibleSymptoms[randomSymptonId] = null;
+  } while (symptoms.length !== symptomsCount);
 
   console.log("Caso:");
-  console.log(symptons);
+  console.log(symptoms);
 
   cases.push({
     name,
     age,
-    symptons,
+    symptoms,
     isSelected: false,
     path: [...path],
     color: getRandomColor(),
@@ -426,7 +426,7 @@ function prepareGame() {
     person.isInLocation = false;
     person.isInfected = false;
     person.onsetThreshold = 1;
-    person.hasSymptons = false;
+    person.hasSymptoms = false;
     person.path = [];
     person.visitedLocations = [];
 

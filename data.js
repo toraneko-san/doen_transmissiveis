@@ -553,7 +553,7 @@ const locations = [
 const diseases = [
   {
     name: "Chikungunya",
-    symptons: [
+    symptoms: [
       "Artralgia debilitante",
       "Cefaleia (dor de cabeça)",
       "Conjuntivite",
@@ -574,7 +574,7 @@ const diseases = [
   },
   {
     name: "Cólera",
-    symptons: [
+    symptoms: [
       "Diarreia aquosa",
       "Náuseas",
       "Vômitos",
@@ -587,7 +587,7 @@ const diseases = [
   },
   {
     name: "Dengue",
-    symptons: [
+    symptoms: [
       "Febre alta",
       "Cefaleia intensa (dor de cabeça)",
       "Dor retro-orbital (dor atrás dos olhos)",
@@ -610,7 +610,7 @@ const diseases = [
   },
   {
     name: "Esporotricose",
-    symptons: [
+    symptoms: [
       "Lesão cutânea nodular",
       'Linfangite ascendente ("corda" sob a pele)',
       "Nódulos em cadeia",
@@ -621,7 +621,7 @@ const diseases = [
   },
   {
     name: "Esquistossomose",
-    symptons: [
+    symptoms: [
       "Dermatite Cercariana (coceira e erupção no local da infecção)",
       "Febre alta",
       "Tosse",
@@ -639,7 +639,7 @@ const diseases = [
   },
   {
     name: "Febre Amarela",
-    symptons: [
+    symptoms: [
       "Febre alta",
       "Cefaleia",
       "Calafrios",
@@ -660,7 +660,7 @@ const diseases = [
   },
   {
     name: "Febre Maculosa",
-    symptons: [
+    symptoms: [
       "Cefaleia (dor de cabeça)",
       "Exantema maculopapular",
       "Febre alta",
@@ -671,7 +671,7 @@ const diseases = [
   },
   {
     name: "Febre Tifóide",
-    symptons: [
+    symptoms: [
       "Febre",
       "Mal-estar",
       "Cefaleia (dor de cabeça)",
@@ -693,7 +693,7 @@ const diseases = [
   },
   {
     name: "Hantavirose",
-    symptons: [
+    symptoms: [
       "Febre",
       "Mialgia intensa (dor muscular)",
       "Cefaleia (dor de cabeça)",
@@ -711,7 +711,7 @@ const diseases = [
   },
   {
     name: "Hepatite A",
-    symptons: [
+    symptoms: [
       "Febre",
       "Anorexia (perda de apetite)",
       "Náuseas",
@@ -731,7 +731,7 @@ const diseases = [
   },
   {
     name: "Meningite",
-    symptons: [
+    symptoms: [
       "Febre alta",
       "Cefaleia intensa (dor de cabeça)",
       "Rigidez de nuca",
@@ -747,7 +747,7 @@ const diseases = [
   },
   {
     name: "Leishmaniose tegumentar",
-    symptons: [
+    symptoms: [
       "Lesão ulcerada (ferida) que não cicatriza",
       "Coriza (inflamação da mucosa nasal)",
       "Lesão ulcerada persistente",
@@ -760,7 +760,7 @@ const diseases = [
   },
   {
     name: "Leptospirose",
-    symptons: [
+    symptoms: [
       "Febre alta",
       "Calafrios",
       "Cefaleia (dor de cabeça)",
@@ -780,7 +780,7 @@ const diseases = [
   },
   {
     name: "Sarampo",
-    symptons: [
+    symptoms: [
       "Febre alta",
       "Tosse",
       "Coriza (inflamação da mucosa nasal)",
@@ -794,7 +794,7 @@ const diseases = [
   },
   {
     name: "Sífilis",
-    symptons: [
+    symptoms: [
       "Úlcera única (lesão indolor)",
       "Linfadenopatia (aumento dos linfonodos)",
       "Exantema (erupção cutânea)",
@@ -811,7 +811,7 @@ const diseases = [
   },
   {
     name: "Toxoplasmose",
-    symptons: [
+    symptoms: [
       "Febre",
       "Mal-estar",
       "Fadiga",
@@ -826,7 +826,7 @@ const diseases = [
   },
   {
     name: "Tuberculose pulmonar",
-    symptons: [
+    symptoms: [
       "Febre vespertina",
       "Tosse seca",
       "Mal-estar",
