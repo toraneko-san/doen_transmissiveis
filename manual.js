@@ -34,7 +34,7 @@ function renderSpread(index) {
 function renderItem(item) {
 	if (!item) return '';
 	if (item.type === 'disease') {
-		const s = item.data.symptons || [];
+		const s = item.data.symptoms || [];
 		return `<h3>${escapeHtml(item.data.name)}</h3><ul>${s
 			.map((t) => `<li>${escapeHtml(t)}</li>`)
 			.join('')}</ul>`;

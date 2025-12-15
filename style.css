@@ -207,18 +207,19 @@ canvas {
   border-top: 0.5vw solid #8f8f8f;
 }
 
+
 .manual-menu {
-  position: fixed;
+  /* position: flex; */
   inset: 0; 
   margin: auto; 
-  height: 90vh;
-  width: 70vw;
-  max-width: 1100px;
+  height: 70vh;
+  width: 50vw;
+  max-width: 57.29vw;
   max-height: 95vh;
-  background-color: #faf6ef;
-  border-radius: 10px;
-  border: 4px solid #8b6f47;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  background-color: white;
+  border-radius: 0.104vw;
+  border-bottom: 0.781vw solid #8b6f47;
+  box-shadow: 0 2.08vw 4.17vw rgba(0, 0, 0, 0.6);
   display: flex;
   z-index: 1100;
   overflow: hidden;
@@ -230,26 +231,23 @@ canvas {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding: 18px;
-  gap: 12px;
+  padding: 0.521vw;
+  gap: 0.625vw;
 }
 
 .manual {
   font-family: 'Press Start 2P', system-ui;
   display: flex;
-  gap: 20px;
+  gap: 0vw;
   flex: 1;
   align-items: stretch;
 }
 
 .page {
-  width: 48%;
+  width: 100%;
   height: 100%;
-  padding: 28px;
-  border-radius: 6px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 0.521vw;
   overflow-y: auto;
-  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .page.left {
@@ -261,24 +259,24 @@ canvas {
 }
 
 .side-btn {
-  width: 56px;
-  height: 56px;
+  width: 1.875vw;
+  height: 2.917vw;
   border-radius: 0.5%;
   background: linear-gradient(180deg,#e7d8b8,#d6c8b0);
-  border: 3px solid #8b6f47;
+  /* border: 3px solid #8b6f47; */
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 1.354vw;
   color: #3b2f22;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 0.3125vw 0.625vw rgba(0,0,0,0.12);
 }
 
 .side-btn::before {
   font-family: 'Press Start 2P', system-ui;
-  font-size: 22px;
+  font-size: 1.146vw;
   line-height: 1;
 }
 
@@ -287,7 +285,7 @@ canvas {
 
 .side-btn:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 18px rgba(0,0,0,0.18);
+  box-shadow: 0 0.521vw 0.938vw rgba(0,0,0,0.18);
 }
 
 .side-btn:active {
@@ -297,67 +295,92 @@ canvas {
 /* page typography */
 .page h3 {
   font-family: 'Press Start 2P', system-ui;
-  font-size: 1.05rem;
-  margin-bottom: 12px;
+  font-size: 0.83vw;
+  margin-bottom: 0.63vw;
   color: #2b2116;
 }
 
+
 .page ul {
-  margin-left: 0.8rem;
-  padding-left: 1rem;
+  font-size: 0.222vw;
+  padding-left: 1.111vw;
   list-style: disc;
 }
 
+
+/* centered page number at bottom */
+.page-number {
+  position: absolute;
+  bottom: 0.521vw;
+  left: 25%;
+  transform: translateX(-50%);
+  font-size: 0.8vw;
+  color: #6b5b4a;
+  background: rgba(255,255,255,0.9);
+  padding: 0.104vw 0.417vw;
+  border-radius: 0.417vw;
+  border: 0.052vw solid rgba(0,0,0,0.06);
+}
 .page li {
-  margin: 6px 0;
+  margin: 0.5vw 0;
   line-height: 1.4;
-  font-size: 0.88rem;
+  font-size: 0.5vw;
   color: #2f2f2f;
 }
 
 
 
+/* fim da pagina */
+
 /* folha de resposta */
 .answer-menu {
-  border: 0.1vw solid black;
-  height: 90vh;
-  width: 50vw;
+  border-bottom: 0.4vw solid gray;
+  border-right: 0.4vw solid gray;
+  height: 38.5vw;
+  width: 35vw;
   font-family: "Press Start 2P", system-ui;
   background-color: white;
-  padding: 2vw;
+  padding: 1.8vw;
   cursor: grab;
+  box-shadow: 0 0.78vw 1.56vw rgba(0, 0, 0, 0.45);
+  transform-origin: top left;
 }
 
 .answer-menu h2 {
   font-family: "Press Start 2P", system-ui;
-  font-size: 1.6vw;
+  font-size: 1.2vw;
+  margin: 0 0 0.4vw 0;
 }
 
 .answer-menu h3 {
   font-family: "Press Start 2P", system-ui;
-  font-size: 0.8vw;
-  padding: 0.4vw 0;
+  font-size: 0.7vw;
+  padding: 0.2vw 0;
+  margin: 0;
 }
 
 #lists-container {
   font-family: "Press Start 2P", system-ui;
   display: flex;
   justify-content: space-between;
+  gap: 0.vw;
 }
 
 #diseases-list,
 #locations-list {
   list-style-type: none;
-  width: 47.5%;
+  width: 48%;
   cursor: default;
+  margin: 0;
+  padding: 0;
 }
 
 #diseases-list li,
 #locations-list li {
-  padding: 0.4vw;
-  border-bottom: 0.1vw solid #ddd;
-  font-size: 0.6vw;
-    cursor: pointer;
+  padding: 0.33vw;
+  /* border-bottom: 0.05vw solid #ddd; */
+  font-size: 0.52vw;
+  cursor: pointer;
 }
 
 #diseases-list li span.riscado,
@@ -370,30 +393,28 @@ canvas {
 #locations-list li span.marcatexto {
   background-color: rgb(230, 192, 22);
   display: inline-block;
-  padding: 0px 0.2vw;
 }
 
 #diseases-list li span.confirmacao,
 #locations-list li span.confirmacao {
-  background-color: red;
+  background-color: green;
   display: inline-block;
-  padding: 0px 0.2vw;
-  color: white;
+  color: black;
 }
 
 #closeAnswer {
   font-family: "Press Start 2P", system-ui;
-  margin: 0;
-  border-right: 0.5vw solid #0f0f0f;
-  border-bottom: 0.5vw solid #0f0f0f;
-  border-left: 0.5vw solid #5f5f5f;
-  border-top: 0.5vw solid #8f8f8f;
+  border-right: 0.25vw solid #0f0f0f;
+  border-bottom: 0.25vw solid #0f0f0f;
+  border-left: 0.25vw solid #5f5f5f;
+  border-top: 0.25vw solid #8f8f8f;
   background-color: #afafaf;
-  padding: 0.8vw 1.6vw;
+  padding: 0.4vw 0.8vw;
   width: fit-content;
-  font-size: 0.8vw;
+  font-size: 0.45vw;
   cursor: pointer;
-  opacity: 0.7;
+  /* display: flex; */
+  /* position: flex; */
 }
 
 .hide {
