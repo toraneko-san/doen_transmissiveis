@@ -9,6 +9,7 @@ let lastFrameTime = performance.now();
 
 let selectedLocationId, selectedDiseaseId;
 const cases = [];
+let newCaseCount = 0;
 
 function animate() {
   const deltaTime = getDeltaTime();
@@ -19,7 +20,7 @@ function animate() {
   for (let i = 0; i < people.length; i++) {
     const person = people[i];
 
-    if (playerMenuState.pause == true) {
+    if (isGamePause == true) {
       drawPerson(person);
       continue;
     }
@@ -31,7 +32,7 @@ function animate() {
 
       checkLocation(person);
       checkFocusLocation(person);
-      checkSymptons(person);
+      checkSymptoms(person);
 
       reduceThreshold(person);
 
@@ -199,7 +200,7 @@ function drawPerson(person) {
 
   if (person.isInfected != true) ctx.fillStyle = "#000";
   // if (person.isInfected == true) ctx.fillStyle = "#0f0";
-  if (person.hasSymptons == true) ctx.fillStyle = "#f00";
+  if (person.hasSymptoms == true) ctx.fillStyle = "#f00";
   ctx.fill();
 }
 
@@ -220,7 +221,7 @@ function checkLocation(person) {
 }
 
 function savePath(person) {
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
   if (isGameStart == false)
     person.path = person.path.filter((_, i) => person.path.length - i < 20);
   person.path.push(person.currentTile);
@@ -229,7 +230,7 @@ function savePath(person) {
 // reduce threshold every time person visits new location after focus location
 function reduceThreshold(person) {
   if (person.isInfected == false) return;
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
   const { row, col } = person.currentTile;
   const locationId = locationsMap[row][col];
 
@@ -243,7 +244,7 @@ function reduceThreshold(person) {
 function checkFocusLocation(person) {
   if (isGameStart == false) return;
   if (person.isInfected == true) return;
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
 
   const { nextTile } = person;
   const { row, col } = nextTile;
@@ -255,9 +256,9 @@ function checkFocusLocation(person) {
   person.isInfected = true;
 }
 
-function checkSymptons(person) {
+function checkSymptoms(person) {
   if (person.isInfected == false) return;
-  if (person.hasSymptons == true) return;
+  if (person.hasSymptoms == true) return;
 
   const { nextTile, onsetThreshold } = person;
   const { row, col } = nextTile;
@@ -274,44 +275,46 @@ function checkSymptons(person) {
 
   if (risk > onsetThreshold) {
     person.path.push(person.nextTile);
-    person.hasSymptons = true;
+    person.hasSymptoms = true;
     person.isInfected = false;
     savePath(person);
     notifyCase(person);
-    // console.log(person.path);
-    // setTimeout(() => notifyCase(person), Math.random() * 5000);
   }
 }
 
 function notifyCase(person) {
   const { path, name, age } = person;
 
-  const possibleSymptons = [...diseases[selectedDiseaseId].symptons];
-  const symptons = [];
-  const symptonsCount = Math.floor(Math.random() * 2 + 2);
+  const possibleSymptoms = [...diseases[selectedDiseaseId].symptoms];
+  const symptoms = [];
+  const symptomsCount = Math.floor(Math.random() * 2 + 2);
 
   do {
     const randomSymptonId = Math.floor(
-      Math.random() * (possibleSymptons.length - 0.1) + 0.09
+      Math.random() * (possibleSymptoms.length - 0.1) + 0.09
     );
-    const randomSympton = possibleSymptons[randomSymptonId];
+    const randomSympton = possibleSymptoms[randomSymptonId];
     if (randomSympton == null) continue;
 
-    symptons.push(randomSympton);
-    possibleSymptons[randomSymptonId] = null;
-  } while (symptons.length !== symptonsCount);
+    symptoms.push(randomSympton);
+    possibleSymptoms[randomSymptonId] = null;
+  } while (symptoms.length !== symptomsCount);
 
-  console.log("Caso:")
-  console.log(symptons);
+  console.log("Caso:");
+  console.log(symptoms);
 
   cases.push({
     name,
     age,
-    symptons,
+    symptoms,
     isSelected: false,
     path: [...path],
     color: getRandomColor(),
   });
+
+  newCaseCount += 1;
+  showNewCaseCount();
+  if (!casesMenu.classList.contains("hide")) showCasesList();
 }
 
 function findNextTile(person) {
@@ -390,53 +393,19 @@ function getRandomColor() {
 //////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////
-canvas.addEventListener("mousedown", (event) => {
-  const { clientX, clientY } = event;
-  mouseStartPos.x = clientX;
-  mouseStartPos.y = clientY;
-  isDraggin = true;
-});
-
-window.addEventListener("mouseup", () => {
-  // console.log(map)
-  isDraggin = false;
-});
-
-canvas.addEventListener("mousemove", (event) => {
-  if (isDraggin == false) return;
-
-  const { clientX, clientY } = event;
-  offset.x = offset.x + (clientX - mouseStartPos.x);
-  offset.y = offset.y + (clientY - mouseStartPos.y);
-
-  if (offset.x > 0) offset.x = 0;
-  if (offset.x < -(Math.ceil(nCols / 2) * tileWidth) + canvas.width)
-    offset.x = -(Math.ceil(nCols / 2) * tileWidth) + canvas.width;
-  if (offset.y > 0) offset.y = 0;
-  if (offset.y < -(nRows * tileHeight + tileHeight / 2) + canvas.height)
-    offset.y = -(nRows * tileHeight + tileHeight / 2) + canvas.height;
-
-  mouseStartPos.x = clientX;
-  mouseStartPos.y = clientY;
-});
-//////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////
-function resizeCanvas() {
+function resize() {
   // size canvas with CSS values
   canvas.width = Math.min(canvas.scrollWidth, mapImg.width);
   canvas.height = Math.min(canvas.scrollHeight, mapImg.height);
 
-  if (offset.x > 0) offset.x = 0;
-  if (offset.x < -(Math.ceil(nCols / 2) * tileWidth) + canvas.width)
-    offset.x = -(Math.ceil(nCols / 2) * tileWidth) + canvas.width;
-  if (offset.y > 0) offset.y = 0;
-  if (offset.y < -(nRows * tileHeight + tileHeight / 2) + canvas.height)
-    offset.y = -(nRows * tileHeight + tileHeight / 2) + canvas.height;
+  setMapLimit();
+  moveCasesMenu();
+  moveManualMenu();
+  moveAnswerMenu();
 }
 
 function prepareGame() {
-  resizeCanvas();
+  resize();
 
   for (let i = 0; i < people.length; i++) {
     const person = people[i];
@@ -457,7 +426,7 @@ function prepareGame() {
     person.isInLocation = false;
     person.isInfected = false;
     person.onsetThreshold = 1;
-    person.hasSymptons = false;
+    person.hasSymptoms = false;
     person.path = [];
     person.visitedLocations = [];
 
@@ -475,13 +444,13 @@ function prepareGame() {
   );
   selectedDiseaseId = locations[selectedLocationId].diseases[randomDiseasePos];
 
-  console.log("local", selectedLocationId, "doenca", diseases[selectedDiseaseId].name);
-  // console.log(locations[selectedLocationId].diseases);
+  console.log("local", selectedLocationId);
+  console.log("doenca", diseases[selectedDiseaseId].name);
 
   animate();
 }
 
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize", resize);
 window.addEventListener("load", prepareGame);
 //////////////////////////////////////////////////////
 
@@ -504,12 +473,53 @@ function start() {
   answerBtn.addEventListener("click", toggleAnswer);
   settingsBtn.addEventListener("click", toggleSettings);
 
-  setTimeout(() => (isGameStart = true), 2500);
+  isGameStart = true;
 }
 
 startButton.addEventListener("click", start);
 
 //////////////////////////////////////////////////////
+const casesMenu = document.querySelector(".cases-menu");
+const manualMenu = document.querySelector(".manual-menu");
+const answerMenu = document.querySelector(".answer-menu");
+
+canvas.addEventListener("mousedown", (event) => {
+  const { clientX, clientY } = event;
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+
+  isDragginMap = true;
+  canvas.classList.add("grabbing");
+});
+
+window.addEventListener("mouseup", () => {
+  // console.log(map)
+  isDragginMap = false;
+  isDragginPlayerMenu = false;
+  canvas.classList.remove("grabbing");
+});
+
+function setMapLimit() {
+  if (offset.x > 0) offset.x = 0;
+  if (offset.x < -(Math.ceil(nCols / 2) * tileWidth) + canvas.width)
+    offset.x = -(Math.ceil(nCols / 2) * tileWidth) + canvas.width;
+  if (offset.y > 0) offset.y = 0;
+  if (offset.y < -(nRows * tileHeight + tileHeight / 2) + canvas.height)
+    offset.y = -(nRows * tileHeight + tileHeight / 2) + canvas.height;
+}
+
+canvas.addEventListener("mousemove", (event) => {
+  if (isDragginMap == false) return;
+
+  const { clientX, clientY } = event;
+  offset.x = offset.x + (clientX - mouseStartPos.x);
+  offset.y = offset.y + (clientY - mouseStartPos.y);
+
+  setMapLimit();
+
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+});
 
 //////////////////////////////////////////////////////
 // canvas.addEventListener("click", (event) => {
@@ -590,10 +600,5 @@ startButton.addEventListener("click", start);
 
 //   console.log(locationsMap);
 // });
-
-window.addEventListener("dblclick", () => {
-  const caseId = Number(prompt("Case Id:"));
-  cases[caseId].isSelected = !cases[caseId].isSelected;
-});
 
 //////////////////////////////////////////////////////

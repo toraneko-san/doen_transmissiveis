@@ -1,14 +1,8 @@
-const playerMenuState = {
-  pause: false,
-  cases: false,
-  manual: false,
-  answer: false,
-  settings: false,
-};
+let isGamePause = false;
 
 const playerMenuPos = {
   cases: {
-    x: window.innerWidth * 0.3,
+    x: window.innerWidth * 0.25,
     y: window.innerHeight * 0.05,
   },
   manual: {
@@ -16,7 +10,7 @@ const playerMenuPos = {
     y: window.innerHeight * 0.05,
   },
   answer: {
-    x: window.innerWidth * 0.3,
+    x: window.innerWidth * 0.25,
     y: window.innerHeight * 0.05,
   },
 };
@@ -25,35 +19,45 @@ const playerMenuPos = {
 function togglePause() {
   const icon = document.querySelector(".pause-btn img");
 
-  if (playerMenuState.pause == true) {
-    icon.src = "assets/icons/pause.png";
-    playerMenuState.pause = false;
-  } else if (playerMenuState.pause == false) {
-    icon.src = "assets/icons/play.png";
-    playerMenuState.pause = true;
-  }
+  if (isGamePause == true) icon.src = "assets/icons/pause.png";
+  else icon.src = "assets/icons/play.png";
+
+  pauseBtn.classList.toggle("btn-selected");
+  isGamePause = !isGamePause;
 }
 //////////////////////////////////////////////////////
-function toggleCases() {
-  const casesMenu = document.querySelector(".cases-menu");
-  const icon = document.querySelector(".cases-btn img");
-
-  if (playerMenuState.cases == true) {
-    casesMenu.classList.add("hide");
-    icon.src = "assets/icons/cases-close.png";
-    playerMenuState.cases = false;
-  } else if (playerMenuState.cases == false) {
-    casesMenu.classList.remove("hide");
-    casesMenu.style.top = `${playerMenuPos.cases.y}px`;
-    casesMenu.style.left = `${playerMenuPos.cases.x}px`;
-    icon.src = "assets/icons/cases-open.png";
-    playerMenuState.cases = true;
+function showNewCaseCount() {
+  const newCaseCounter = document.querySelector(".new-case-counter");
+  if (newCaseCount == 0) {
+    newCaseCounter.classList.add("hide");
+    return;
   }
 
+  newCaseCounter.classList.remove("hide");
+  newCaseCounter.innerHTML = newCaseCount;
+}
+
+function toggleCases() {
+  const icon = document.querySelector(".cases-btn img");
+
+  if (casesMenu.classList.contains("hide")) {
+    icon.src = "assets/icons/cases-open.png";
+
+    moveCasesMenu();
+    setMenuLayer("cases");
+  } else {
+    icon.src = "assets/icons/cases-close.png";
+  }
+
+  casesMenu.classList.toggle("hide");
+  casesBtn.classList.toggle("btn-selected");
   showCasesList();
 }
 
 function showCasesList() {
+  newCaseCount = 0;
+  showNewCaseCount();
+
   const casesList = document.querySelector(".cases-list");
   casesList.innerHTML = "";
 
@@ -61,64 +65,171 @@ function showCasesList() {
     const { name, isSelected } = cases[i];
 
     casesList.innerHTML += `
-        <div class="">${name}<div>
-        <div class="" onClick="togglePath(cases[i])">${name}<div>
-        <div class="" onClick="showCaseDetail(cases[i])">${name}<div>
+        <div>${name}<div>
+        <div onClick="togglePath(cases[${i}])">caminho temp<div>
+        <div onClick="showCaseDetail(cases[${i}])">detalhe temp<div>
     `;
   }
   //
 }
 
+// essa funcao esta pronta!
 function togglePath(diseaseCase) {
+  diseaseCase.isSelected = !diseaseCase.isSelected;
+
+  // atualiza a lista
   showCasesList();
-  alert("sss");
 }
 
 function showCaseDetail(diseaseCase) {
   const caseDetail = document.querySelector(".case-detail");
+  caseDetail.style.display = "block";
+
   caseDetail.innerHTML = `
-    <div></div>
+    <h3>Detalhes do Caso</h3>
+    <p>Nome: ${diseaseCase.name}</p>
+    <p>Idade: ${diseaseCase.age}</p>
+    <p>Sintomas: ${diseaseCase.symptoms.join(", ")}</p>
   `;
 }
 //////////////////////////////////////////////////////
 function toggleManual() {
-  const manualMenu = document.querySelector(".manual-menu");
   const icon = document.querySelector(".manual-btn img");
 
-  if (playerMenuState.manual == true) {
-    manualMenu.classList.add("hide");
-    icon.src = "assets/icons/manual-close.png";
-    playerMenuState.manual = false;
-  } else if (playerMenuState.manual == false) {
-    manualMenu.classList.remove("hide");
-    manualMenu.style.top = `${playerMenuPos.manual.y}px`;
-    manualMenu.style.left = `${playerMenuPos.manual.x}px`;
+  if (manualMenu.classList.contains("hide")) {
     icon.src = "assets/icons/manual-open.png";
-    playerMenuState.manual = true;
+
+    moveManualMenu();
+    setMenuLayer("manual");
+  } else {
+    icon.src = "assets/icons/manual-close.png";
   }
+
+  manualMenu.classList.toggle("hide");
+  manualBtn.classList.toggle("btn-selected");
 }
+
 //////////////////////////////////////////////////////
 function toggleAnswer() {
   const answerMenu = document.querySelector(".answer-menu");
   const icon = document.querySelector(".answer-btn img");
 
-  if (playerMenuState.answer == true) {
-    answerMenu.classList.add("hide");
-    icon.src = "assets/icons/answer-close.png";
-    playerMenuState.answer = false;
-  } else if (playerMenuState.answer == false) {
-    answerMenu.classList.remove("hide");
-    answerMenu.style.top = `${playerMenuPos.answer.y}px`;
-    answerMenu.style.left = `${playerMenuPos.answer.x}px`;
+  if (answerMenu.classList.contains("hide")) {
     icon.src = "assets/icons/answer-open.png";
-    playerMenuState.answer = true;
+
+    moveAnswerMenu();
+    setMenuLayer("answer");
+    renderAnswer();
+  } else {
+    icon.src = "assets/icons/answer-close.png";
   }
+
+  answerMenu.classList.toggle("hide");
+  answerBtn.classList.toggle("btn-selected");
 }
 //////////////////////////////////////////////////////
 function toggleSettings() {
-  if (playerMenuState.settings == true) {
-    playerMenuState.settings = false;
-  } else if (playerMenuState.settings == false) {
-    playerMenuState.settings = true;
-  }
+  settingsBtn.classList.toggle("btn-selected");
 }
+
+//////////////////////////////////////////////////////
+function moveCasesMenu() {
+  casesMenu.classList.add("grabbing");
+  setPlayerMenuLimit("cases", casesMenu);
+
+  casesMenu.style.top = `${playerMenuPos.cases.y}px`;
+  casesMenu.style.left = `${playerMenuPos.cases.x}px`;
+}
+
+function moveManualMenu() {
+  manualMenu.classList.add("grabbing");
+  setPlayerMenuLimit("manual", manualMenu);
+
+  manualMenu.style.top = `${playerMenuPos.manual.y}px`;
+  manualMenu.style.left = `${playerMenuPos.manual.x}px`;
+}
+
+function moveAnswerMenu() {
+  answerMenu.classList.add("grabbing");
+  setPlayerMenuLimit("answer", answerMenu);
+
+  answerMenu.style.top = `${playerMenuPos.answer.y}px`;
+  answerMenu.style.left = `${playerMenuPos.answer.x}px`;
+}
+
+function setPlayerMenuLimit(menuType, menu) {
+  const menuPos = playerMenuPos[menuType];
+
+  if (menuPos.x < -menu.offsetWidth + 0.1 * window.innerWidth)
+    menuPos.x = -menu.offsetWidth + 0.1 * window.innerWidth;
+  if (menuPos.x > 0.9 * window.innerWidth) menuPos.x = 0.9 * window.innerWidth;
+  if (menuPos.y < -menu.offsetHeight + 0.05 * window.innerHeight)
+    menuPos.y = -menu.offsetHeight + 0.05 * window.innerHeight;
+  if (menuPos.y > 0.95 * window.innerHeight)
+    menuPos.y = 0.95 * window.innerHeight;
+}
+
+let menuLayer = [];
+
+function setMenuLayer(menuType) {
+  if (menuLayer.length >= 3)
+    menuLayer = menuLayer.filter((layer) => !(layer == menuType));
+  menuLayer.push(menuType);
+
+  menuLayer.forEach((layer, index) => {
+    const menu = document.querySelector(`.${layer}-menu`);
+    menu.style.zIndex = index;
+  });
+}
+
+function startDragPlayerMenu(event) {
+  const { clientX, clientY } = event;
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+  isDragginPlayerMenu = true;
+}
+
+function dragPlayerMenu(event, menuType) {
+  if (isDragginPlayerMenu == false) return;
+  setMenuLayer(menuType);
+
+  const { clientX, clientY } = event;
+
+  const menuPos = playerMenuPos[menuType];
+  menuPos.x = menuPos.x + (clientX - mouseStartPos.x);
+  menuPos.y = menuPos.y + (clientY - mouseStartPos.y);
+
+  if (menuType == "cases") moveCasesMenu();
+  if (menuType == "manual") moveManualMenu();
+  if (menuType == "answer") moveAnswerMenu();
+
+  mouseStartPos.x = clientX;
+  mouseStartPos.y = clientY;
+}
+
+casesMenu.addEventListener("mouseup", () => {
+  isDragginPlayerMenu = false;
+  casesMenu.classList.remove("grabbing");
+});
+casesMenu.addEventListener("mousedown", startDragPlayerMenu);
+casesMenu.addEventListener("mousemove", (event) =>
+  dragPlayerMenu(event, "cases")
+);
+
+manualMenu.addEventListener("mouseup", () => {
+  isDragginPlayerMenu = false;
+  manualMenu.classList.remove("grabbing");
+});
+manualMenu.addEventListener("mousedown", startDragPlayerMenu);
+manualMenu.addEventListener("mousemove", (event) =>
+  dragPlayerMenu(event, "manual")
+);
+
+answerMenu.addEventListener("mouseup", () => {
+  isDragginPlayerMenu = false;
+  answerMenu.classList.remove("grabbing");
+});
+answerMenu.addEventListener("mousedown", startDragPlayerMenu);
+answerMenu.addEventListener("mousemove", (event) =>
+  dragPlayerMenu(event, "answer")
+);
