@@ -315,11 +315,6 @@ canvas {
   color: #2f2f2f;
 }
 
-/* custom scrollbar for pages */
-.page::-webkit-scrollbar { width: 10px; }
-.page::-webkit-scrollbar-track { background: transparent; }
-.page::-webkit-scrollbar-thumb { background: #d6c0a0; border-radius: 6px; }
-.page::-webkit-scrollbar-thumb:hover { background: #c4ad8f; }
 
 
 /* folha de resposta */
