@@ -5,7 +5,8 @@ const nCols = 26; // 27 - 1
 // const map = new Array(nRows).fill().map(() => new Array(nCols).fill(0));
 
 const offset = { x: 0, y: 0 };
-let isDraggin = false;
+let isDragginMap = false;
+let isDragginPlayerMenu = false;
 const mouseStartPos = { x: undefined, y: undefined };
 
 const map = [
@@ -842,6 +843,7 @@ const diseases = [
     ],
   },
 ];
+
 const people = [
   { name: crypto.randomUUID(), age: Math.floor(Math.random() * 50 + 20) },
   { name: crypto.randomUUID(), age: Math.floor(Math.random() * 50 + 20) },
@@ -914,3 +916,4 @@ const people = [
   { name: crypto.randomUUID(), age: Math.floor(Math.random() * 50 + 20) },
   { name: crypto.randomUUID(), age: Math.floor(Math.random() * 50 + 20) },
 ];
+
