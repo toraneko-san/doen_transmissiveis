@@ -225,6 +225,7 @@ canvas {
   font-family: "Press Start 2P", system-ui;
   background-color: white;
   padding: 2vw;
+  cursor: grab;
 }
 
 .answer-menu h2 {
@@ -248,7 +249,7 @@ canvas {
 #locations-list {
   list-style-type: none;
   width: 47.5%;
-  cursor: pointer;
+  cursor: default;
 }
 
 #diseases-list li,
@@ -256,6 +257,7 @@ canvas {
   padding: 0.4vw;
   border-bottom: 0.1vw solid #ddd;
   font-size: 0.6vw;
+    cursor: pointer;
 }
 
 #diseases-list li span.riscado,
@@ -307,4 +309,8 @@ canvas {
   color: rgb(0, 225, 255);
   text-decoration: underline;
   cursor: pointer;
+}
+
+.btn-selected {
+ background-color: #888; 
 }

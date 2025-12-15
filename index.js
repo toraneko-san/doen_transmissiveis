@@ -601,9 +601,4 @@ canvas.addEventListener("mousemove", (event) => {
 //   console.log(locationsMap);
 // });
 
-window.addEventListener("dblclick", () => {
-  const caseId = Number(prompt("Case Id:"));
-  cases[caseId].isSelected = !cases[caseId].isSelected;
-});
-
 //////////////////////////////////////////////////////

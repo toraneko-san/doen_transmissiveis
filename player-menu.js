@@ -22,6 +22,7 @@ function togglePause() {
   if (isGamePause == true) icon.src = "assets/icons/pause.png";
   else icon.src = "assets/icons/play.png";
 
+  pauseBtn.classList.toggle("btn-selected");
   isGamePause = !isGamePause;
 }
 //////////////////////////////////////////////////////
@@ -40,16 +41,16 @@ function toggleCases() {
   const icon = document.querySelector(".cases-btn img");
 
   if (casesMenu.classList.contains("hide")) {
-    casesMenu.classList.remove("hide");
     icon.src = "assets/icons/cases-open.png";
 
     moveCasesMenu();
     setMenuLayer("cases");
   } else {
-    casesMenu.classList.add("hide");
     icon.src = "assets/icons/cases-close.png";
   }
 
+  casesMenu.classList.toggle("hide");
+  casesBtn.classList.toggle("btn-selected");
   showCasesList();
 }
 
@@ -96,15 +97,16 @@ function toggleManual() {
   const icon = document.querySelector(".manual-btn img");
 
   if (manualMenu.classList.contains("hide")) {
-    manualMenu.classList.remove("hide");
     icon.src = "assets/icons/manual-open.png";
 
     moveManualMenu();
     setMenuLayer("manual");
   } else {
-    manualMenu.classList.add("hide");
     icon.src = "assets/icons/manual-close.png";
   }
+
+  manualMenu.classList.toggle("hide");
+  manualBtn.classList.toggle("btn-selected");
 }
 
 //////////////////////////////////////////////////////
@@ -113,20 +115,21 @@ function toggleAnswer() {
   const icon = document.querySelector(".answer-btn img");
 
   if (answerMenu.classList.contains("hide")) {
-    answerMenu.classList.remove("hide");
     icon.src = "assets/icons/answer-open.png";
 
     moveAnswerMenu();
     setMenuLayer("answer");
     renderAnswer();
   } else {
-    answerMenu.classList.add("hide");
     icon.src = "assets/icons/answer-close.png";
   }
+
+  answerMenu.classList.toggle("hide");
+  answerBtn.classList.toggle("btn-selected");
 }
 //////////////////////////////////////////////////////
 function toggleSettings() {
-  //
+  settingsBtn.classList.toggle("btn-selected");
 }
 
 //////////////////////////////////////////////////////
