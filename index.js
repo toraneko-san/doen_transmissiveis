@@ -2,7 +2,7 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
 const mapImg = new Image();
-mapImg.src = "./assets/map.jpeg";
+mapImg.src = "./assets/map.jpg";
 
 let isGameStart = false;
 let lastFrameTime = performance.now();
@@ -106,7 +106,7 @@ function drawBackground() {
   //     }
 
   //     ctx.lineWidth = 5;
-  //     ctx.strokeStyle = "#000";
+  //     ctx.strokeStyle = "#0ff";
   //     ctx.stroke();
 
   //     // ctx.fillStyle = "#000";
@@ -558,7 +558,7 @@ canvas.addEventListener("mousemove", (event) => {
 
 //   map[row][col] = map[row][col] == 0 ? 1 : 0;
 
-//   console.log(map)
+//   console.log(map);
 // });
 
 // canvas.addEventListener("click", (event) => {
@@ -595,9 +595,12 @@ canvas.addEventListener("mousemove", (event) => {
 //   if ((tempX + tempY) % 2 == 0) col = distance > 0 ? tempX - 1 : tempX;
 //   else col = distance > 0 ? tempX : tempX - 1;
 
-//   const locationId = Number(prompt("Location Id: "));
-//   locationsMap[row][col] = locationId ? locationId : null;
+//   const locationId = prompt("Location Id: ");
+//   console.log(locationId);
+//   locationsMap[row][col] = locationId !== null ? Number(locationId) : null;
+//   map[row][col] = map[row][col] == 0 || locationsMap[row][col] ? 1 : 0;
 
+//   console.log(map);
 //   console.log(locationsMap);
 // });
 
