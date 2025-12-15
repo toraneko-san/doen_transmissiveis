@@ -44,6 +44,7 @@ function toggleCases() {
     icon.src = "assets/icons/cases-open.png";
 
     moveCasesMenu();
+    setMenuLayer("cases");
   } else {
     casesMenu.classList.add("hide");
     icon.src = "assets/icons/cases-close.png";
@@ -91,6 +92,7 @@ function toggleManual() {
     icon.src = "assets/icons/manual-open.png";
 
     moveManualMenu();
+    setMenuLayer("manual");
   } else {
     manualMenu.classList.add("hide");
     icon.src = "assets/icons/manual-close.png";
@@ -107,6 +109,7 @@ function toggleAnswer() {
     icon.src = "assets/icons/answer-open.png";
 
     moveAnswerMenu();
+    setMenuLayer("answer");
     renderAnswer();
   } else {
     answerMenu.classList.add("hide");
