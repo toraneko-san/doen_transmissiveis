@@ -62,15 +62,15 @@ function showCasesList() {
   casesList.innerHTML = "";
 
   for (let i = 0; i < cases.length; i++) {
-    const { isSelected } = cases[i];
+    const { isSelected, color } = cases[i];
 
     casesList.innerHTML += `
       <div class="case-container">
         <p>CASO Nº ${i + 1}</p>
         <div class="path-container">
           <p>Mostrar percurso?</p>
-          <div class="path-btn ${
-            isSelected ? "path-selected" : ""
+          <div class="path-btn" style="background-color: ${
+            isSelected ? color : "#afafaf"
           }" onClick="togglePath(cases[${i}])"></div>
         </div>
         <div class="detail-btn" onClick="showCaseDetail(cases[${i}], ${i})">> ver ficha completa<div>

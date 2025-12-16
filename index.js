@@ -315,9 +315,6 @@ function notifyCase(person) {
     possibleSymptoms[randomSymptonId] = null;
   } while (symptoms.length !== symptomsCount);
 
-  console.log("Caso:");
-  console.log(symptoms);
-
   cases.push({
     name,
     age,

@@ -249,10 +249,6 @@ canvas {
   transform: scale(1.1);
 }
 
-.path-selected {
-  background-color: #0a0;
-}
-
 .detail-btn:hover {
   cursor: pointer;
   font-weight: 700;
@@ -280,44 +276,158 @@ canvas {
   height: 90vh;
   width: 66vw;
   background-color: white;
-  border-right: 0.5vw solid #0f0f0f;
-  border-bottom: 0.5vw solid #0f0f0f;
-  border-left: 0.5vw solid #5f5f5f;
-  border-top: 0.5vw solid #8f8f8f;
+  border-radius: 0.1vw;
+  border-bottom: 0.8vw solid #8b6f47;
+  box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.6);
+  display: flex;
 }
+
+.manual-container {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 1vw;
+}
+
+.manual {
+  font-family: "Press Start 2P", system-ui;
+  display: flex;
+  gap: 0.3vw;
+  flex: 1;
+  align-items: stretch;
+  height: 100%;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  padding: 1vw;
+  overflow-y: auto;
+}
+
+.page-separator {
+  border: 0.15vw solid #e6dccb;
+  height: 100%;
+}
+
+.side-btn {
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 0.5%;
+  background: linear-gradient(180deg, #e7d8b8, #d6c8b0);
+  border: 0.4vw solid #8b6f47;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3vw;
+  color: #3b2f22;
+  box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.12);
+}
+
+.side-btn::before {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 1.146vw;
+  color: #8b6f47;
+}
+
+.left-btn::before {
+  content: "‹";
+}
+.right-btn::before {
+  content: "›";
+}
+
+.side-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0.5vw 0.9vw rgba(0, 0, 0, 0.18);
+}
+
+.side-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* page typography */
+.page h3 {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 1.3vw;
+  margin-bottom: 1vw;
+  line-height: 2vw;
+  color: #2b2116;
+}
+
+.page h4 {
+  padding: 1.5vw 0 0.5vw;
+  font-size: 1vw;
+}
+
+.page p {
+  font-size: 0.8vw;
+  line-height: 1.3vw;
+}
+
+.page img {
+  display: block;
+  margin: auto;
+  width: 70%;
+  user-select: none;
+}
+
+.page ul {
+  padding-left: 1vw;
+  list-style: disc;
+}
+
+.page li {
+  margin: 0.5vw 0;
+  line-height: 1.4;
+  font-size: 0.8vw;
+  color: #2f2f2f;
+}
+
+/* fim da pagina */
 
 /* folha de resposta */
 .answer-menu {
-  border: 0.1vw solid black;
-  height: 90vh;
-  width: 50vw;
+  border-bottom: 0.4vw solid gray;
+  border-right: 0.4vw solid gray;
+  height: 38.5vw;
+  width: 35vw;
   font-family: "Press Start 2P", system-ui;
   background-color: white;
-  padding: 2vw;
+  padding: 1vw;
   cursor: grab;
+  box-shadow: 0 0.78vw 1.56vw rgba(0, 0, 0, 0.45);
+  transform-origin: top left;
 }
 
 .answer-menu h2 {
   font-family: "Press Start 2P", system-ui;
-  font-size: 1.6vw;
+  font-size: 1.2vw;
+  margin: 0 0 0.4vw 0;
 }
 
 .answer-menu h3 {
   font-family: "Press Start 2P", system-ui;
-  font-size: 0.8vw;
-  padding: 0.4vw 0;
+  font-size: 0.7vw;
+  padding: 0.2vw 0;
+  margin: 0;
 }
 
 #lists-container {
   font-family: "Press Start 2P", system-ui;
   display: flex;
   justify-content: space-between;
+  gap: 0vw;
 }
 
 #diseases-list,
 #locations-list {
   list-style-type: none;
-  width: 47.5%;
   cursor: default;
 }
 
@@ -325,9 +435,11 @@ canvas {
 #locations-list li {
   padding: 0.4vw;
   border-bottom: 0.1vw solid #ddd;
-  font-size: 0.6vw;
+  font-size: 0.5vw;
+  word-spacing: -0.25vw;
   cursor: pointer;
 }
+
 
 #diseases-list li span.riscado,
 #locations-list li span.riscado {
@@ -337,31 +449,25 @@ canvas {
 
 #diseases-list li span.marcatexto,
 #locations-list li span.marcatexto {
-  background-color: rgb(230, 192, 22);
-  display: inline-block;
-  padding: 0px 0.2vw;
+  background-color: rgb(249, 214, 57);
 }
 
 #diseases-list li span.confirmacao,
 #locations-list li span.confirmacao {
-  background-color: red;
-  display: inline-block;
-  padding: 0px 0.2vw;
-  color: white;
+  background-color: #0e0;
 }
 
 #closeAnswer {
   font-family: "Press Start 2P", system-ui;
-  border-right: 0.5vw solid #0f0f0f;
-  border-bottom: 0.5vw solid #0f0f0f;
-  border-left: 0.5vw solid #5f5f5f;
-  border-top: 0.5vw solid #8f8f8f;
+  border-right: 0.25vw solid #0f0f0f;
+  border-bottom: 0.25vw solid #0f0f0f;
+  border-left: 0.25vw solid #5f5f5f;
+  border-top: 0.25vw solid #8f8f8f;
   background-color: #afafaf;
-  padding: 0.8vw 1.6vw;
+  padding: 0.4vw 0.8vw;
   width: fit-content;
-  font-size: 0.8vw;
+  font-size: 0.45vw;
   cursor: pointer;
-  opacity: 0.7;
 }
 
 .btn-selected {
@@ -374,4 +480,8 @@ canvas {
 
 .grabbing {
   cursor: grabbing;
+}
+
+.btn-selected {
+  background-color: #888;
 }

@@ -531,26 +531,38 @@ const locationsMap = [
   ],
 ];
 const locations = [
-  { name: "Banheiro Público", diseases: [13, 14] },
-  { name: "Bar", diseases: [1, 7, 13] },
-  { name: "Bueiro", diseases: [0, 2, 12] },
-  { name: "Carrinho de Lanche", diseases: [1, 7, 9] },
-  { name: "Casa", diseases: [3, 9, 13, 14, 16] },
-  { name: "Chafariz", diseases: [0, 1, 2] },
-  { name: "Container de Lixo", diseases: [2, 12] },
-  { name: "Escola", diseases: [7, 9, 10, 13, 16] },
-  { name: "Lagoa", diseases: [4, 5, 8, 12] },
-  { name: "Loja", diseases: [10, 13, 16] },
-  { name: "Mata Pequena", diseases: [4, 5, 6, 8, 11, 15] },
-  { name: "Motel", diseases: [14, 16] },
-  { name: "Padaria", diseases: [9, 13] },
-  { name: "Parquinho Infantil", diseases: [2, 9, 15] },
-  { name: "Poça de água", diseases: [2, 4, 12] },
-  { name: "Restaurante", diseases: [1, 7, 9, 13] },
-  { name: "Rio / Esgoto", diseases: [1, 4, 12] },
-  { name: "Salão de Beleza", diseases: [10, 13] },
-  { name: "Sítio peri-urbano", diseases: [3, 5, 6, 8, 11] },
-  { name: "Zoologico", diseases: [2, 6, 11, 15] },
+  { name: "Banheiro Público", diseases: [13, 14], img: "banheiro-publico.png" },
+  { name: "Bar", diseases: [1, 7, 13], img: "bar.png" },
+  { name: "Bueiro", diseases: [0, 2, 12], img: "bueiro.png" },
+  {
+    name: "Carrinho de Lanche",
+    diseases: [1, 7, 9],
+    img: "carrinho-lanche.png",
+  },
+  { name: "Casa", diseases: [3, 9, 13, 14, 16], img: "casa.png" },
+  { name: "Chafariz", diseases: [0, 1, 2], img: "chafariz.png" },
+  { name: "Container de Lixo", diseases: [2, 12], img: "container-lixo.png" },
+  { name: "Escola", diseases: [7, 9, 10, 13, 16], img: "escola.png" },
+  { name: "Lagoa", diseases: [4, 5, 8, 12], img: "lagoa.png" },
+  { name: "Loja", diseases: [10, 13, 16], img: "loja.png" },
+  {
+    name: "Mata Pequena",
+    diseases: [4, 5, 6, 8, 11, 15],
+    img: "mata-pequena.png",
+  },
+  { name: "Motel", diseases: [14, 16], img: "motel.png" },
+  { name: "Padaria", diseases: [9, 13], img: "padaria.png" },
+  {
+    name: "Parquinho Infantil",
+    diseases: [2, 9, 15],
+    img: "parque-infantil.png",
+  },
+  { name: "Poça de água", diseases: [2, 4, 12], img: "poca-agua.png" },
+  { name: "Restaurante", diseases: [1, 7, 9, 13], img: "restaurante.png" },
+  { name: "Rio / Esgoto", diseases: [1, 4, 12], img: "esgoto.png" },
+  { name: "Salão de Beleza", diseases: [10, 13], img: "salao-beleza.png" },
+  { name: "Sítio peri-urbano", diseases: [3, 5, 6, 8, 11], img: "sitio.png" },
+  { name: "Zoológico", diseases: [2, 6, 11, 15], img: "zoologico.png" },
 ];
 
 const diseases = [
@@ -571,9 +583,10 @@ const diseases = [
       "Artralgia debilitante, persistente ou recorrente (dor nas articulações)",
       "Edema articular persistente",
       "Rigidez matinal",
-      "Fadiga crônica",
       "Dores musculares leves intermitentes",
     ],
+    description:
+      "A chikungunya é uma doença viral causada pelo vírus chikungunya (CHIKV) e é transmitida pela picada da fêmea infectada do mosquito Aedes aegypti, que também transmite a dengue.",
   },
   {
     name: "Cólera",
@@ -587,6 +600,8 @@ const diseases = [
       "Desidratação severa",
       "Anúria (produção baixa ou ausência de urina)",
     ],
+    description:
+      "A cólera é uma doença infecciosa intestinal aguda causada pela bactéria Vibrio cholerae (sorogrupos O1 e O139) e transmitida pela via fecal-oral. Isso ocorre principalmente pela ingestão de água ou alimentos contaminados por fezes ou vômitos de pessoas infectadas, como peixes, frutos do mar crus ou mal cozidos, ou pelo contato direto (mão-boca) com superfícies ou pessoas contaminadas quando a higiene é inadequada.",
   },
   {
     name: "Dengue",
@@ -600,27 +615,29 @@ const diseases = [
       "Vômitos",
       "Mal-estar",
       "Prostração",
-      "Letargia leve",
+      "Letargia",
       "Dor abdominal intensa e contínua",
       "Vômitos persistentes",
       "Petéquias (pequenas manchas vermelhas)",
       "Hemorragias",
-      "Letargia intensa",
       "Fadiga",
       "Fraqueza",
       "Perda de apetite",
     ],
+    description:
+      "A dengue é uma doença febril aguda causada pelo vírus da dengue (DENV), que possui quatro sorotipos principais (DENV-1, DENV-2, DENV-3 e DENV-4). Ela é classificada como uma arbovirose, sendo transmitida para os humanos principalmente pela picada da fêmea infectada do mosquito Aedes aegypti.",
   },
   {
     name: "Esporotricose",
     symptoms: [
       "Lesão cutânea nodular",
       'Linfangite ascendente ("corda" sob a pele)',
-      "Nódulos em cadeia",
+      "Nódulos persistentes e/ou em cadeia",
       "Úlceras crônicas",
-      "Nódulos persistentes",
       "Fibrose",
     ],
+    description:
+      "A Esporotricose é uma micose causada por fungos do gênero Sporothrix e sua transmissão pode acontecer de duas formas principais: pelo contato da pele com materiais contaminados do ambiente, como solo, plantas e espinhos; ou, mais comumente atualmente, pela arranhadura ou mordedura de gatos infectados. A doença não é transmitida diretamente de pessoa para pessoa",
   },
   {
     name: "Esquistossomose",
@@ -639,27 +656,29 @@ const diseases = [
       "Ascite (barriga d’água)",
       "Fibrose hepática",
     ],
+    description:
+      "A esquistossomose é uma doença parasitária causada pelo verme Schistosoma mansoni. O ciclo da doença começa quando uma pessoa infectada elimina ovos do parasita pelas fezes. Ao entrarem em contato com a água, esses ovos liberam larvas que infectam caramujos. Dentro do caramujo, as larvas se desenvolvem e são liberadas novamente na água na forma de cercárias, que são as formas infectantes. A infecção humana ocorre quando a pele entra em contato direto com água doce parada ou de pouca correnteza contaminada por cercárias, que penetram ativamente na pele",
   },
   {
     name: "Febre Amarela",
     symptoms: [
       "Febre alta",
-      "Cefaleia",
+      "Cefaleia (dor de cabeça)",
       "Calafrios",
       "Mal-estar",
-      "Mialgia (dor no corpo)",
+      "Mialgia (dor muscular)",
       "Náuseas",
-      "Vômitos",
       "Prostração",
       "Icterícia (pele e olhos amarelados)",
       "Insuficiência hepática",
-      "Aumento do fígado",
+      "Hepatomegalia (aumento do fígado)",
       "Vômito negro (hemorragia no estômago)",
       "Hemorragias",
-      "Vômitos persistentes",
       "Insuficiência renal",
       "Anúria (ausência de urina)",
     ],
+    description:
+      "A Febre Amarela é uma doença infecciosa causada pelo vírus YFV, transmitido pela picada de mosquitos. No ciclo silvestre (vigente), mosquitos dos gêneros Haemagogus e Sabethes, de áreas de matas, transmitem o vírus, tendo os macacos como hospedeiros principais. Já no ciclo urbano o mosquito transmissor é o Aedes aegypti, porém casos não são registrados desde 1942 no Brasil.",
   },
   {
     name: "Febre Maculosa",
@@ -671,6 +690,8 @@ const diseases = [
       "Picada de carrapato",
       "Vômitos",
     ],
+    description:
+      "A Febre Maculosa é uma doença infecciosa grave causada por bactérias do gênero Rickettsia e transmitida exclusivamente pela picada de carrapatos infectados, principalmente da espécie Amblyomma, conhecida como carrapato-estrela. A transmissão só acontece quando o carrapato permanece fixo na pele por horas (entre 4 e 10 horas), e nunca ocorre diretamente de pessoa para pessoa ou pelo contato com animais doentes",
   },
   {
     name: "Febre Tifóide",
@@ -681,9 +702,8 @@ const diseases = [
       "Mialgia (dor muscular)",
       "Anorexia (perda de apetite)",
       "Constipação",
-      "Febre alta",
       "Dor abdominal",
-      "Roséolas tíficas",
+      "Roséolas tíficas (manchas rosadas no tronco)",
       "Bradicardia relativa (pulsos lentos em relação à febre)",
       "Hepatomegalia (aumento do fígado)",
       "Esplenomegalia (aumento do baço)",
@@ -693,6 +713,8 @@ const diseases = [
       "Choque ou colapso circulatório",
       "Fadiga",
     ],
+    description:
+      "A Febre Tifóide é uma doença infecciosa aguda causada pela bactéria Salmonella enterica sorotipo Typhi (S. Typhi). A transmissão ocorre pela via fecal-oral, ou seja, pela ingestão de água ou alimentos contaminados com fezes ou urina de pessoas doentes ou portadoras assintomáticas, ou ainda pelo contato direto (mão-boca) com superfícies ou pessoas contaminadas quando os hábitos de higiene são inadequados",
   },
   {
     name: "Hantavirose",
@@ -711,6 +733,8 @@ const diseases = [
       "Insuficiência renal aguda",
       "Insuficiência respiratória",
     ],
+    description:
+      "A Hantavirose é uma doença viral grave causada pelos vírus do gênero Ortho Hantavirus, e transmitida por roedores silvestres, principalmente ao inalar poeira contaminada com suas fezes, urina ou saliva seca.",
   },
   {
     name: "Hepatite A",
@@ -725,15 +749,14 @@ const diseases = [
       "Icterícia (pele e olhos amarelados)",
       "Colúria (urina escura)",
       "Acolia fecal (fezes claras)",
-      "Aumento do fígado (hepatomegalia)",
-      "Dor abdominal (pode continuar)",
-      "Fadiga (pode ser intensa)",
-      "Fadiga",
+      "Hepatomegalia (aumento do fígado)",
       "Apetite reduzido",
     ],
+    description:
+      "A Hepatite A é uma doença infecciosa causada pelo vírus da Hepatite A (VHA), que é transmitido pela via fecal-oral. A principal forma de contágio ocorre por meio da ingestão de água ou alimentos contaminados com fezes de uma pessoa infectada, ou pelo contato direto (mão-boca) com objetos, superfícies ou de pessoa para pessoa, quando os hábitos de higiene, como lavar as mãos, não são adequadamente seguidos.",
   },
   {
-    name: "Meningite",
+    name: "Meningite meningocócica",
     symptoms: [
       "Febre alta",
       "Cefaleia intensa (dor de cabeça)",
@@ -747,6 +770,8 @@ const diseases = [
       "Náuseas",
       "Petéquias (pequenas manchas vermelhas)",
     ],
+    description:
+      "A Meningite Meningocócica é uma infecção grave causada pela bactéria Neisseria meningitidis. Sua transmissão ocorre de pessoa para pessoa por via respiratória, através do contato próximo e prolongado com gotículas e secreções da garganta ou nariz de uma pessoa infectada ou portadora da bactéria, como ao tossir, espirrar ou beijar",
   },
   {
     name: "Leishmaniose tegumentar",
@@ -760,6 +785,8 @@ const diseases = [
       "Obstrução nasal",
       "Deformidades nas mucosas",
     ],
+    description:
+      "A Leishmaniose é uma doença causada pelo parasita Leishmania, transmitida exclusivamente pela picada da fêmea do mosquito-palha (flebotomíneo). O ciclo envolve animais: o mosquito se infecta ao picar um mamífero reservatório (como raposas silvestres ou, nas cidades, os cães domésticos) e depois transmite o parasita a um novo hospedeiro, que pode ser uma pessoa.",
   },
   {
     name: "Leptospirose",
@@ -780,6 +807,8 @@ const diseases = [
       "Hepatomegalia (aumento do fígado)",
       "Hepatite",
     ],
+    description:
+      "A leptospirose é uma infecção bacteriana aguda causada por bactérias do gênero Leptospira que é transmitida pelo contato da pele ou mucosas com água, lama ou solo contaminados pela urina de animais infectados, principalmente ratos, especialmente durante enchentes e inundações.",
   },
   {
     name: "Sarampo",
@@ -794,6 +823,8 @@ const diseases = [
       "Pneumonia",
       "PEES - Panencefalite esclerosante subaguda (doença neurológica)",
     ],
+    description:
+      "O sarampo é uma doença infecciosa e altamente contagiosa causada pelo vírus do sarampo (gênero Morbillivirus). A transmissão ocorre de pessoa para pessoa por via aérea, por meio de secreções expelidas ao tossir, falar ou respirar.",
   },
   {
     name: "Sífilis",
@@ -811,6 +842,8 @@ const diseases = [
       "Goma (granuloma tardio)",
       "Acometimento cardiovascular",
     ],
+    description:
+      "A sífilis é uma Infecção Sexualmente Transmissível (IST) causada pela bactéria Treponema pallidum. A principal forma de transmissão é pelo contato sexual desprotegido (vaginal, anal ou oral) com uma pessoa infectada. A doença também pode ser transmitida da mãe para o bebê durante a gestação ou o parto, o que configura a sífilis congênita",
   },
   {
     name: "Toxoplasmose",
@@ -826,6 +859,8 @@ const diseases = [
       "Confusão",
       "Convulsões",
     ],
+    description:
+      "A toxoplasmose é uma doença infecciosa causada pelo protozoário Toxoplasma gondii. A forma mais comum de transmissão é pela ingestão de oocistos (ovos do parasita) presentes em alimentos, água ou solo contaminados por fezes de gatos infectados. Outras vias importantes são o consumo de carne crua ou malcozida de animais portadores (especialmente suína e ovina) e a transmissão congênita, da gestante infectada para o feto",
   },
   {
     name: "Tuberculose pulmonar",
@@ -844,6 +879,8 @@ const diseases = [
       "Dor torácica",
       "Dispneia (falta de ar)",
     ],
+    description:
+      "A tuberculose pulmonar é uma doença infecciosa e transmissível causada pela bactéria Mycobacterium tuberculosis (também chamada de bacilo de Koch). Sua transmissão ocorre por via respiratória (aérea), quando uma pessoa com a forma ativa da doença, ao tossir, falar ou espirrar, elimina no ar aerossóis contendo o agente infeccioso que podem ser inalados por outras pessoas.",
   },
 ];
 
