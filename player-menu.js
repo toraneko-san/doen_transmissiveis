@@ -66,8 +66,8 @@ function showCasesList() {
 
     casesList.innerHTML += `
         <div>${name}<div>
-        <div onClick="togglePath(cases[${i}])">caminho temp<div>
-        <div onClick="showCaseDetail(cases[${i}])">detalhe temp<div>
+        <div class="toggle-path" onClick="togglePath(cases[${i}])">caminho temp<div>
+        <div class="detalhe" onClick="showCaseDetail(cases[${i}], ${i})">detalhe temp<div>
     `;
   }
   //
@@ -81,15 +81,14 @@ function togglePath(diseaseCase) {
   showCasesList();
 }
 
-function showCaseDetail(diseaseCase) {
+function showCaseDetail(diseaseCase, i ) {
   const caseDetail = document.querySelector(".case-detail");
   caseDetail.style.display = "block";
 
   caseDetail.innerHTML = `
-    <h3>Detalhes do Caso</h3>
-    <p>Nome: ${diseaseCase.name}</p>
-    <p>Idade: ${diseaseCase.age}</p>
-    <p>Sintomas: ${diseaseCase.symptoms.join(", ")}</p>
+    <h3>Detalhes do Caso</h3> 
+    <p class="caso">Caso n°: ${i + 1}</p>
+    <p class="sintomas">Sintomas: ${diseaseCase.symptoms.join(", ")}</p>
   `;
 }
 //////////////////////////////////////////////////////
