@@ -410,15 +410,18 @@ canvas {
   width: 40vw;
   font-family: "Press Start 2P", system-ui;
   background-color: white;
-  padding: 1vw;
+  padding: 2vw 1vw;
   cursor: grab;
   box-shadow: 0 0.78vw 1.56vw rgba(0, 0, 0, 0.45);
   transform-origin: top left;
 }
 
 .answer-menu h2 {
+  display: flex;
+  align-items: center;
   font-family: "Press Start 2P", system-ui;
-  font-size: 1.4vw;
+  font-size: 1.5vw;
+  line-height: 3vw;
   margin: 0 0 0.4vw 0;
 }
 
@@ -487,6 +490,23 @@ canvas {
 .finish-btn:disabled {
   transform: scale(1);
   cursor: default;
+}
+
+.close-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 2vw;
+  font-size: 3vw;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .result-container {

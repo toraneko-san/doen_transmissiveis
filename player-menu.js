@@ -10,7 +10,7 @@ const playerMenuPos = {
     y: window.innerHeight * 0.05,
   },
   answer: {
-    x: window.innerWidth * 0.30,
+    x: window.innerWidth * 0.3,
     y: window.innerHeight * 0.05,
   },
 };
@@ -42,6 +42,9 @@ function toggleCases() {
 
   if (casesMenu.classList.contains("hide")) {
     icon.src = "assets/icons/cases-open.png";
+
+    const closeBtn = document.querySelector(".cases-menu .close-btn");
+    closeBtn.addEventListener("click", toggleCases);
 
     moveCasesMenu();
     setMenuLayer("cases");
@@ -96,7 +99,7 @@ function showCaseDetail(diseaseCase, i) {
     <p>Sintomas:</p>
     <ul>${diseaseCase.symptoms.map((s, i) => `(${i + 1}) ${s}`).join("; ")}</ul>
     `;
-//     <ul>${diseaseCase.symptoms.map((s) => `<li>${s}</li>`).join("")}</ul>
+  //     <ul>${diseaseCase.symptoms.map((s) => `<li>${s}</li>`).join("")}</ul>
 }
 //////////////////////////////////////////////////////
 function toggleManual() {
@@ -104,6 +107,9 @@ function toggleManual() {
 
   if (manualMenu.classList.contains("hide")) {
     icon.src = "assets/icons/manual-open.png";
+
+    const closeBtn = document.querySelector(".manual-menu .close-btn");
+    closeBtn.addEventListener("click", toggleManual);
 
     moveManualMenu();
     setMenuLayer("manual");
@@ -122,6 +128,9 @@ function toggleAnswer() {
 
   if (answerMenu.classList.contains("hide")) {
     icon.src = "assets/icons/answer-open.png";
+
+    const closeBtn = document.querySelector(".answer-menu .close-btn");
+    closeBtn.addEventListener("click", toggleAnswer);
 
     moveAnswerMenu();
     setMenuLayer("answer");
