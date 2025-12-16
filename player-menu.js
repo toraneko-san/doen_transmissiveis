@@ -134,9 +134,9 @@ function toggleAnswer() {
   answerBtn.classList.toggle("btn-selected");
 }
 //////////////////////////////////////////////////////
-function toggleSettings() {
-  settingsBtn.classList.toggle("btn-selected");
-}
+// function toggleSettings() {
+//   settingsBtn.classList.toggle("btn-selected");
+// }
 
 //////////////////////////////////////////////////////
 function moveCasesMenu() {

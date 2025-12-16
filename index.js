@@ -59,6 +59,7 @@ function drawBackground() {
   ctx.clearRect(0, 0, mapWidth, mapHeight);
 
   ctx.drawImage(bgImg, offset.x, offset.y);
+  // drawForeground();
 
   // for (let row = 0; row < nRows; row++) {
   //   for (let col = 0; col < nCols; col++) {
@@ -503,7 +504,7 @@ const pauseBtn = document.querySelector(".pause-btn");
 const casesBtn = document.querySelector(".cases-btn");
 const manualBtn = document.querySelector(".manual-btn");
 const answerBtn = document.querySelector(".answer-btn");
-const settingsBtn = document.querySelector(".settings-btn");
+// const settingsBtn = document.querySelector(".settings-btn");
 
 function start() {
   mainMenu.classList.add("hide");
@@ -512,7 +513,7 @@ function start() {
   casesBtn.addEventListener("click", toggleCases);
   manualBtn.addEventListener("click", toggleManual);
   answerBtn.addEventListener("click", toggleAnswer);
-  settingsBtn.addEventListener("click", toggleSettings);
+  // settingsBtn.addEventListener("click", toggleSettings);
 
   isGameStart = true;
 }
