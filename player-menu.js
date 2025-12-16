@@ -10,7 +10,7 @@ const playerMenuPos = {
     y: window.innerHeight * 0.05,
   },
   answer: {
-    x: window.innerWidth * 0.25,
+    x: window.innerWidth * 0.30,
     y: window.innerHeight * 0.05,
   },
 };

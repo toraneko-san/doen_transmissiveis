@@ -395,8 +395,8 @@ canvas {
 .answer-menu {
   border-bottom: 0.4vw solid gray;
   border-right: 0.4vw solid gray;
-  height: 38.5vw;
-  width: 35vw;
+  height: 90vh;
+  width: 40vw;
   font-family: "Press Start 2P", system-ui;
   background-color: white;
   padding: 1vw;
@@ -407,13 +407,13 @@ canvas {
 
 .answer-menu h2 {
   font-family: "Press Start 2P", system-ui;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   margin: 0 0 0.4vw 0;
 }
 
 .answer-menu h3 {
   font-family: "Press Start 2P", system-ui;
-  font-size: 0.7vw;
+  font-size: 0.9vw;
   padding: 0.2vw 0;
   margin: 0;
 }
@@ -435,7 +435,7 @@ canvas {
 #locations-list li {
   padding: 0.4vw;
   border-bottom: 0.1vw solid #ddd;
-  font-size: 0.5vw;
+  font-size: 0.6vw;
   word-spacing: -0.25vw;
   cursor: pointer;
 }
