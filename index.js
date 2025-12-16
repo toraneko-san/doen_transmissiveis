@@ -1,8 +1,12 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-const mapImg = new Image();
-mapImg.src = "./assets/map.jpeg";
+const bgImg = new Image();
+bgImg.src = "./assets/background.png";
+const locationsImg = new Image();
+locationsImg.src = "./assets/locations.png";
+const treesImg = new Image();
+treesImg.src = "./assets/trees.png";
 
 let isGameStart = false;
 let lastFrameTime = performance.now();
@@ -15,7 +19,7 @@ function animate() {
   const deltaTime = getDeltaTime();
 
   drawBackground();
-  drawCasesPath();
+  // drawCasesPath();
 
   for (let i = 0; i < people.length; i++) {
     const person = people[i];
@@ -43,7 +47,9 @@ function animate() {
     drawPerson(person);
   }
 
-  // draw locations (to do)
+  drawForeground();
+  drawCasesPath();
+
   requestAnimationFrame(animate);
 }
 
@@ -52,7 +58,7 @@ function drawBackground() {
   const mapHeight = nRows * tileHeight + tileHeight / 2;
   ctx.clearRect(0, 0, mapWidth, mapHeight);
 
-  ctx.drawImage(mapImg, offset.x, offset.y);
+  ctx.drawImage(bgImg, offset.x, offset.y);
 
   // for (let row = 0; row < nRows; row++) {
   //   for (let col = 0; col < nCols; col++) {
@@ -105,8 +111,8 @@ function drawBackground() {
   //       }
   //     }
 
-  //     ctx.lineWidth = 5;
-  //     ctx.strokeStyle = "#000";
+  //     ctx.lineWidth = 10;
+  //     ctx.strokeStyle = "#0ff";
   //     ctx.stroke();
 
   //     // ctx.fillStyle = "#000";
@@ -119,37 +125,45 @@ function drawBackground() {
   //   }
   // }
 
-  for (let row = 0; row < nRows; row++) {
-    for (let col = 0; col < nCols; col++) {
-      if (locationsMap[row][col] == null) continue;
-      const x = tileWidth * (col / 2);
-      const y =
-        col % 2 == 0 ? tileHeight * row : tileHeight * row + tileHeight / 2;
+  // for (let row = 0; row < nRows; row++) {
+  //   for (let col = 0; col < nCols; col++) {
+  //     if (locationsMap[row][col] == null) continue;
+  //     const x = tileWidth * (col / 2);
+  //     const y =
+  //       col % 2 == 0 ? tileHeight * row : tileHeight * row + tileHeight / 2;
 
-      ctx.beginPath();
+  //     ctx.beginPath();
 
-      ctx.moveTo(x + offset.x, y + tileHeight / 2 + offset.y);
-      ctx.lineTo(x + offset.x + tileWidth / 2, y + offset.y);
-      ctx.lineTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
-      ctx.lineTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
-      ctx.lineTo(x + offset.x, y + tileHeight / 2 + offset.y);
+  //     ctx.moveTo(x + offset.x, y + tileHeight / 2 + offset.y);
+  //     ctx.lineTo(x + offset.x + tileWidth / 2, y + offset.y);
+  //     ctx.lineTo(x + offset.x + tileWidth, y + tileHeight / 2 + offset.y);
+  //     ctx.lineTo(x + offset.x + tileWidth / 2, y + tileHeight + offset.y);
+  //     ctx.lineTo(x + offset.x, y + tileHeight / 2 + offset.y);
 
-      ctx.lineWidth = 5;
-      ctx.strokeStyle = "#f00";
-      ctx.stroke();
+  //     ctx.lineWidth = 5;
+  //     ctx.strokeStyle = "#f00";
+  //     ctx.stroke();
 
-      // if (locationsMap[row][col] == selectedLocationId) ctx.fillStyle = "#f00";
-      // else ctx.fillStyle = "#000";
+  //     // if (locationsMap[row][col] == selectedLocationId) ctx.fillStyle = "#f00";
+  //     // else ctx.fillStyle = "#000";
+  //     ctx.fillStyle = "#f00";
+  //     ctx.fill();
 
-      ctx.fillStyle = "#000";
-      ctx.textAlign = "center";
-      ctx.fillText(
-        locationsMap[row][col],
-        x + tileWidth / 2 + offset.x,
-        y + tileHeight / 2 + offset.y
-      );
-    }
-  }
+  //     ctx.fillStyle = "#fff";
+  //     ctx.font = "700 40px Arial";
+  //     ctx.textAlign = "center";
+  //     ctx.fillText(
+  //       locationsMap[row][col],
+  //       x + tileWidth / 2 + offset.x,
+  //       y + tileHeight / 2 + offset.y
+  //     );
+  //   }
+  // }
+}
+
+function drawForeground() {
+  ctx.drawImage(treesImg, offset.x, offset.y);
+  ctx.drawImage(locationsImg, offset.x, offset.y);
 }
 
 function drawCasesPath() {
@@ -176,6 +190,7 @@ function drawCasesPath() {
         );
     }
 
+    ctx.lineWidth = 10;
     ctx.strokeStyle = color;
     ctx.stroke();
 
@@ -387,7 +402,7 @@ function getRandomColor() {
   const g = Math.floor(Math.random() * (200 - 1) + 0.5);
   const b = Math.floor(Math.random() * (200 - 1) + 0.5);
 
-  return `rgb(${r},${g},${b}, 0.5)`;
+  return `rgb(${r},${g},${b})`;
 }
 
 //////////////////////////////////////////////////////
@@ -395,8 +410,8 @@ function getRandomColor() {
 //////////////////////////////////////////////////////
 function resize() {
   // size canvas with CSS values
-  canvas.width = Math.min(canvas.scrollWidth, mapImg.width);
-  canvas.height = Math.min(canvas.scrollHeight, mapImg.height);
+  canvas.width = Math.min(canvas.scrollWidth, bgImg.width);
+  canvas.height = Math.min(canvas.scrollHeight, bgImg.height);
 
   setMapLimit();
   moveCasesMenu();
@@ -558,7 +573,7 @@ canvas.addEventListener("mousemove", (event) => {
 
 //   map[row][col] = map[row][col] == 0 ? 1 : 0;
 
-//   console.log(map)
+//   console.log(map);
 // });
 
 // canvas.addEventListener("click", (event) => {
@@ -595,9 +610,12 @@ canvas.addEventListener("mousemove", (event) => {
 //   if ((tempX + tempY) % 2 == 0) col = distance > 0 ? tempX - 1 : tempX;
 //   else col = distance > 0 ? tempX : tempX - 1;
 
-//   const locationId = Number(prompt("Location Id: "));
-//   locationsMap[row][col] = locationId ? locationId : null;
+//   const locationId = prompt("Location Id: ");
+//   console.log(locationId);
+//   locationsMap[row][col] = locationId !== null ? Number(locationId) : null;
+//   map[row][col] = map[row][col] == 0 || locationsMap[row][col] ? 1 : 0;
 
+//   console.log(map);
 //   console.log(locationsMap);
 // });
 
