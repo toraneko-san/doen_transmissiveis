@@ -196,6 +196,33 @@ function drawCasesPath() {
 
     selectedCount += 1;
   }
+
+  selectedCount = 0;
+  for (let i = 0; i < cases.length; i++) {
+    const { isSelected, path, color } = cases[i];
+    if (isSelected == false) continue;
+
+    
+    for (let j = 0; j < path.length; j++) {
+      const { x, y } = getTopXY(path[j]);
+      const { row, col } = path[j];
+      
+      ctx.beginPath();
+      if (locationsMap[row][col] !== null) {
+        ctx.arc(
+          x + offset.x + tileWidth / 2,
+          y + offset.y + (tileHeight / 4) * ((selectedCount % 3) + 1),
+          15,
+          0,
+          2 * Math.PI
+        );
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+    }
+
+    selectedCount += 1;
+  }
 }
 
 function drawPerson(person) {
