@@ -423,7 +423,7 @@ function prepareGame() {
   resize();
 
   for (let i = 0; i < people.length; i++) {
-    const person = people[i];
+    const person = {};
     let startTile;
 
     do {
@@ -449,6 +449,8 @@ function prepareGame() {
       savePath(person);
       findNextTile(person);
     } while (person.path.length < 20);
+
+    people[i] = person;
   }
 
   selectedLocationId = Math.floor(

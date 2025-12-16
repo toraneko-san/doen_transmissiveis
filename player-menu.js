@@ -62,15 +62,21 @@ function showCasesList() {
   casesList.innerHTML = "";
 
   for (let i = 0; i < cases.length; i++) {
-    const { name, isSelected } = cases[i];
+    const { isSelected } = cases[i];
 
     casesList.innerHTML += `
-        <div>${name}<div>
-        <div class="toggle-path" onClick="togglePath(cases[${i}])">caminho temp<div>
-        <div class="detalhe" onClick="showCaseDetail(cases[${i}], ${i})">detalhe temp<div>
+      <div class="case-container">
+        <p>CASO Nº ${i + 1}</p>
+        <div class="path-container">
+          <p>Mostrar percurso?</p>
+          <div class="path-btn ${
+            isSelected ? "path-selected" : ""
+          }" onClick="togglePath(cases[${i}])"></div>
+        </div>
+        <div class="detail-btn" onClick="showCaseDetail(cases[${i}], ${i})">> ver ficha completa<div>
+      </div>
     `;
   }
-  //
 }
 
 // essa funcao esta pronta!
@@ -81,15 +87,16 @@ function togglePath(diseaseCase) {
   showCasesList();
 }
 
-function showCaseDetail(diseaseCase, i ) {
+function showCaseDetail(diseaseCase, i) {
   const caseDetail = document.querySelector(".case-detail");
   caseDetail.style.display = "block";
 
   caseDetail.innerHTML = `
-    <h3>Detalhes do Caso</h3> 
-    <p class="caso">Caso n°: ${i + 1}</p>
-    <p class="sintomas">Sintomas: ${diseaseCase.symptoms.join(", ")}</p>
-  `;
+    <p>CASO Nº ${i + 1}</p>
+    <p>Sintomas:</p>
+    <ul>${diseaseCase.symptoms.map((s, i) => `(${i + 1}) ${s}`).join("; ")}</ul>
+    `;
+//     <ul>${diseaseCase.symptoms.map((s) => `<li>${s}</li>`).join("")}</ul>
 }
 //////////////////////////////////////////////////////
 function toggleManual() {
