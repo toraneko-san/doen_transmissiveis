@@ -44,7 +44,8 @@ canvas {
 
 .title {
   position: relative;
-  font-size: 10vw;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 7vw;
   text-align: center;
   animation: updown 2s linear infinite;
 }
@@ -239,7 +240,8 @@ canvas {
   border-right: 0.4vw solid #0f0f0f;
   border-bottom: 0.4vw solid #0f0f0f;
   border-left: 0.4vw solid #5f5f5f;
-  border-top: 0.4vw solid #8f8f8f;  aspect-ratio: 1;
+  border-top: 0.4vw solid #8f8f8f;
+  aspect-ratio: 1;
   width: 2vw;
   background-color: #afafaf;
 }
@@ -265,7 +267,6 @@ canvas {
   font-size: 0.75vw;
   line-height: 1.25vw;
   overflow-y: auto;
-
 }
 
 .case-detail ul {
@@ -440,7 +441,6 @@ canvas {
   cursor: pointer;
 }
 
-
 #diseases-list li span.riscado,
 #locations-list li span.riscado {
   text-decoration: line-through;
@@ -457,7 +457,7 @@ canvas {
   background-color: #0e0;
 }
 
-#closeAnswer {
+.finish-btn {
   font-family: "Press Start 2P", system-ui;
   border-right: 0.25vw solid #0f0f0f;
   border-bottom: 0.25vw solid #0f0f0f;
@@ -466,12 +466,75 @@ canvas {
   background-color: #afafaf;
   padding: 0.4vw 0.8vw;
   width: fit-content;
-  font-size: 0.45vw;
+  font-size: 0.7vw;
   cursor: pointer;
 }
 
-.btn-selected {
-  background-color: #888;
+.finish-btn:hover {
+  transform: scale(1.1);
+}
+
+.finish-btn:disabled {
+  transform: scale(1);
+  cursor: default;
+}
+
+.result-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.result {
+  width: 66vw;
+  height: 90vh;
+  border-right: 0.5vw solid #0f0f0f;
+  border-bottom: 0.5vw solid #0f0f0f;
+  border-left: 0.5vw solid #5f5f5f;
+  border-top: 0.5vw solid #8f8f8f;
+  padding: 2vw;
+  background-color: #afafaf;
+  font-family: "Press Start 2P", system-ui;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+.message {
+  font-size: 3vw;
+}
+
+.comment {
+  font-size: 1vw;
+  line-height: 1.2vw;
+  white-space: pre-line;
+  text-align: justify;
+}
+
+.answer-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto 1fr;
+  gap: 1vw;
+  padding: 2vw 0 0;
+  font-size: 2vw;
+}
+
+.correct-answer {
+  color: #0e0;
+}
+
+.wrong-answer {
+  color: #d00;
+  display: block;
+  line-height: 3vw;
 }
 
 .hide {

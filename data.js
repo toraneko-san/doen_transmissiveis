@@ -587,6 +587,8 @@ const diseases = [
     ],
     description:
       "A chikungunya é uma doença viral causada pelo vírus chikungunya (CHIKV) e é transmitida pela picada da fêmea infectada do mosquito Aedes aegypti, que também transmite a dengue.",
+    comment:
+      "A febre chikungunya já registrou no Brasil mais de 121 mil casos e 113 mortes somente até setembro de 2025. A doença se espalhou por todo o país após mais de uma década de sua chegada. O grande alerta é que, em cerca de metade dos casos, as fortes dores nas articulações podem persistir por meses ou anos, causando incapacidade e reduzindo a qualidade de vida. Atualmente existe uma vacina aprovada contra o vírus no Brasil. \n \n A prevenção é fundamental: Para combater o mosquito, elimine toda água parada em casa — em vasos, pneus, garrafas e calhas — e use repelente regularmente. \n \n Procure o médico se apresentar os sintomas.",
   },
   {
     name: "Cólera",
@@ -602,6 +604,8 @@ const diseases = [
     ],
     description:
       "A cólera é uma doença infecciosa intestinal aguda causada pela bactéria Vibrio cholerae (sorogrupos O1 e O139) e transmitida pela via fecal-oral. Isso ocorre principalmente pela ingestão de água ou alimentos contaminados por fezes ou vômitos de pessoas infectadas, como peixes, frutos do mar crus ou mal cozidos, ou pelo contato direto (mão-boca) com superfícies ou pessoas contaminadas quando a higiene é inadequada.",
+    comment:
+      "No Brasil, após um período de 18 anos sem transmissão local, um caso autóctone (adquirido dentro do país) de cólera foi confirmado em Salvador, Bahia, em 2024. A situação, no entanto, ainda é considerada de baixo risco para uma epidemia ampla. Historicamente, o país enfrentou uma grande epidemia na década de 1990, que começou pela região Norte e se espalhou pelo Nordeste. \n \n Atualmente, o principal alerta é para o aumento de casos de cólera no mundo, que favorece o risco de reintrodução da doença aqui, especialmente em áreas com condições precárias de saneamento básico e água tratada. \n \n Procure o médico se apresentar sintomas que indicam desidratação como diarreia  e vômitos.",
   },
   {
     name: "Dengue",
@@ -626,6 +630,8 @@ const diseases = [
     ],
     description:
       "A dengue é uma doença febril aguda causada pelo vírus da dengue (DENV), que possui quatro sorotipos principais (DENV-1, DENV-2, DENV-3 e DENV-4). Ela é classificada como uma arbovirose, sendo transmitida para os humanos principalmente pela picada da fêmea infectada do mosquito Aedes aegypti.",
+    comment:
+      "A dengue já é considerada uma doença endêmica no Brasil, e geralmente ocorre um número maior de casos entre outubro e maio, época de chuva e calor. Os principais sintomas são febre alta, dores fortes no corpo e cansaço, e esses sinais podem ficar graves rapidamente. Atualmente o Sistema Único de Saúde está no processo de implementação de uma vacina protetora para a população. \n \n Enquanto a vacina ainda não está disponível, a melhor prevenção ainda é o controle dos vetores, não deixando água parada principalmente em ambientes externos. \n \n Procure o médico caso apresente sintomas.",
   },
   {
     name: "Esporotricose",
@@ -638,6 +644,8 @@ const diseases = [
     ],
     description:
       "A Esporotricose é uma micose causada por fungos do gênero Sporothrix e sua transmissão pode acontecer de duas formas principais: pelo contato da pele com materiais contaminados do ambiente, como solo, plantas e espinhos; ou, mais comumente atualmente, pela arranhadura ou mordedura de gatos infectados. A doença não é transmitida diretamente de pessoa para pessoa",
+    comment:
+      "Desde a década de 1990, a esporotricose se tornou uma importante zoonose urbana no Brasil, principalmente devido à transmissão a partir de gatos domésticos, com o estado do Rio de Janeiro sendo considerado o epicentro da doença. \n \n O número de casos tem apresentado um crescimento significativo, configurando um cenário epidêmico em alguns estados e municípios. \n \n Procure um médico se notar lesões suspeitas que não cicatrizam, que costumam aparecer no local do ferimento e geralmente se espalham pelo corpo pelo trajeto dos vasos linfáticos.",
   },
   {
     name: "Esquistossomose",
@@ -658,6 +666,8 @@ const diseases = [
     ],
     description:
       "A esquistossomose é uma doença parasitária causada pelo verme Schistosoma mansoni. O ciclo da doença começa quando uma pessoa infectada elimina ovos do parasita pelas fezes. Ao entrarem em contato com a água, esses ovos liberam larvas que infectam caramujos. Dentro do caramujo, as larvas se desenvolvem e são liberadas novamente na água na forma de cercárias, que são as formas infectantes. A infecção humana ocorre quando a pele entra em contato direto com água doce parada ou de pouca correnteza contaminada por cercárias, que penetram ativamente na pele",
+    comment:
+      "A esquistossomose está profundamente ligada a condições socioeconômicas desfavoráveis. \n \n A falta de saneamento básico é o principal motor de transmissão, pois permite que os ovos do parasita, eliminados nas fezes humanas, contaminem corpos d'água doce. Esse cenário gera um ciclo vicioso de pobreza e doença. A região onde há maior prevalência da doença é a região sudeste, enquanto a região nordeste apresenta diversas áreas endêmicas. \n \n É uma doença considerada negligenciada e subnotificada no país. Ao mais, existem muitos casos assintomáticos. \n \n Caso em sua região exista a presença de “lagoas de coceira”, avise imediatamente as autoridades de saúde do município. \n \n Procure o médico em caso de suspeita. O tratamento é eficaz principalmente se diagnosticado precocemente.",
   },
   {
     name: "Febre Amarela",
@@ -679,6 +689,8 @@ const diseases = [
     ],
     description:
       "A Febre Amarela é uma doença infecciosa causada pelo vírus YFV, transmitido pela picada de mosquitos. No ciclo silvestre (vigente), mosquitos dos gêneros Haemagogus e Sabethes, de áreas de matas, transmitem o vírus, tendo os macacos como hospedeiros principais. Já no ciclo urbano o mosquito transmissor é o Aedes aegypti, porém casos não são registrados desde 1942 no Brasil.",
+    comment:
+      "A Febre Amarela segue sendo uma ameaça real no Brasil, principalmente para quem vive ou visita áreas de mata das Regiões Centro-Oeste e Norte, com risco também em partes do Sudeste. Os casos aumentam entre dezembro e maio, quando o calor e as chuvas multiplicam os mosquitos da floresta que transmitem o vírus. A morte de macacos é um sinal de alerta crucial, pois mostra que o vírus está ativo naquela região. A principal estratégia para evitar que a doença, hoje restrita às matas, volte a ser transmitida nas cidades pelo mosquito da dengue (Aedes aegypti) é manter a população vacinada. A vacina é segura, gratuita e a forma mais eficaz de se proteger e proteger a todos. \n \n Procure o médico se apresentar os sintomas como feridas que não cicatrizam. Em animais (como cães) é interessante observar esses mesmos sintomas, principalmente nas orelhas e no focinho.",
   },
   {
     name: "Febre Maculosa",
@@ -692,6 +704,8 @@ const diseases = [
     ],
     description:
       "A Febre Maculosa é uma doença infecciosa grave causada por bactérias do gênero Rickettsia e transmitida exclusivamente pela picada de carrapatos infectados, principalmente da espécie Amblyomma, conhecida como carrapato-estrela. A transmissão só acontece quando o carrapato permanece fixo na pele por horas (entre 4 e 10 horas), e nunca ocorre diretamente de pessoa para pessoa ou pelo contato com animais doentes",
+    comment:
+      "A Febre Maculosa é uma doença grave e endêmica no Brasil, com alta letalidade que pode chegar a 35% nacionalmente e a 70% em estados como São Paulo. Ocorre principalmente na Região Sudeste (São Paulo, Minas Gerais, Rio de Janeiro), mas também há registros significativos em Santa Catarina, no Sul. \n \n A doença tem sazonalidade, com mais casos entre junho e novembro (período seco e frio), quando as formas jovens do carrapato, mais difíceis de ver, são mais ativas. \n \n A presença de animais como capivaras e cavalos em uma região sinaliza maior risco, pois são hospedeiros amplificadores da bactéria e podem estar infestados por carrapatos. \n \n Evite o contato direto com esses animais e seus ambientes. Medidas eficazes contra a febre maculosa incluem o uso de roupas de proteção, vistoria do corpo  a cada duas horas e após visitar áreas de risco. \n \n Procure o médico se apresentar sintomas após visitar regiões endêmicas de febre maculosa.",
   },
   {
     name: "Febre Tifóide",
@@ -715,6 +729,8 @@ const diseases = [
     ],
     description:
       "A Febre Tifóide é uma doença infecciosa aguda causada pela bactéria Salmonella enterica sorotipo Typhi (S. Typhi). A transmissão ocorre pela via fecal-oral, ou seja, pela ingestão de água ou alimentos contaminados com fezes ou urina de pessoas doentes ou portadoras assintomáticas, ou ainda pelo contato direto (mão-boca) com superfícies ou pessoas contaminadas quando os hábitos de higiene são inadequados",
+    comment:
+      "No Brasil, a febre tifóide ocorre de forma endêmica e concentrada, principalmente em áreas com condições de saneamento precárias, especialmente nas regiões Norte e Nordeste do país. No período de 2011 a 2021, foram registrados pouco mais de mil casos confirmados, com o estado do Pará respondendo sozinho por aproximadamente 40% das notificações. A doença atinge mais homens adultos jovens, entre 20 e 39 anos, e está diretamente associada a fatores de risco como acesso limitado à água tratada e condições inadequadas de higiene. Embora o número de casos seja considerado baixo em nível nacional, a doença representa um desafio contínuo de saúde pública nas localidades afetadas. \n \n Procure o médico se apresentar sintomas.",
   },
   {
     name: "Hantavirose",
@@ -735,6 +751,8 @@ const diseases = [
     ],
     description:
       "A Hantavirose é uma doença viral grave causada pelos vírus do gênero Ortho Hantavirus, e transmitida por roedores silvestres, principalmente ao inalar poeira contaminada com suas fezes, urina ou saliva seca.",
+    comment:
+      "No Brasil, a Hantavirose apresenta uma alta taxa de letalidade de cerca de 40% e ocorre de forma esporádica, com média de menos de 70 casos confirmados por ano (2013-2023). A doença é mais frequente nas regiões Sul, Sudeste e Centro-Oeste em áreas rurais, especialmente durante atividades agrícolas como armazenamento de grãos. \n \n A principal medida de prevenção é evitar o contato com roedores e suas excretas, ventilando ambientes fechados antes da limpeza, utilizando máscara com filtro P3 e mantendo quintais limpos e alimentos bem armazenados. \n \n Procure o médico para apresentar sintomas.",
   },
   {
     name: "Hepatite A",
@@ -754,6 +772,8 @@ const diseases = [
     ],
     description:
       "A Hepatite A é uma doença infecciosa causada pelo vírus da Hepatite A (VHA), que é transmitido pela via fecal-oral. A principal forma de contágio ocorre por meio da ingestão de água ou alimentos contaminados com fezes de uma pessoa infectada, ou pelo contato direto (mão-boca) com objetos, superfícies ou de pessoa para pessoa, quando os hábitos de higiene, como lavar as mãos, não são adequadamente seguidos.",
+    comment:
+      "No Brasil, a epidemiologia da hepatite A vem passando por mudanças. Antes associada a más condições de saneamento e à transmissão fecal-oral por água ou alimentos contaminados, a doença teve redução superior a 90% dos casos em crianças na última década, graças à vacinação infantil no SUS desde 2014. Em contrapartida, houve aumento de 54,5% nos casos em 2024, principalmente entre adultos jovens de 20 a 39 anos, majoritariamente homens. Segundo o Ministério da Saúde, esse crescimento está relacionado sobretudo à transmissão por via sexual, especialmente em práticas com contato oral-anal. \n \n Procure o médico se apresentar os sintomas como amarelamento dos olhos e da pele, urina escura e fezes claras.",
   },
   {
     name: "Meningite meningocócica",
@@ -772,6 +792,8 @@ const diseases = [
     ],
     description:
       "A Meningite Meningocócica é uma infecção grave causada pela bactéria Neisseria meningitidis. Sua transmissão ocorre de pessoa para pessoa por via respiratória, através do contato próximo e prolongado com gotículas e secreções da garganta ou nariz de uma pessoa infectada ou portadora da bactéria, como ao tossir, espirrar ou beijar",
+    comment:
+      "A meningite meningocócica é uma das infecções bacterianas mais graves e de evolução mais rápida, com uma letalidade que varia de 20% a 30% no Brasil e pode levar ao óbito em menos de 24 horas após os primeiros sintomas. Após a introdução da vacina contra o sorogrupo C no calendário nacional em 2010, a incidência geral da doença caiu drasticamente. \n \n Atualmente, a vacinação é a principal forma de prevenção, e o Sistema Único de Saúde (SUS) oferece gratuitamente as vacinas contra os sorogrupos C (para bebês) e ACWY (como dose de reforço aos 12 meses e para adolescentes). \n \n Apesar do progresso, um desafio atual é o sorogrupo B, que se tornou o mais frequente, responsável por cerca de 73% dos casos em menores de 1 ano, e para o qual a vacina, altamente recomendada, está disponível na rede privada; a vacinação é a principal forma de prevenção. \n \n Caso apresente a “tríade clássica”: febre, dor de cabeça intensa e rigidez na nuca, procure imediatamente um médico, uma vez que é uma infecção que pode levar ao óbito em menos de 24 horas.",
   },
   {
     name: "Leishmaniose tegumentar",
@@ -787,6 +809,8 @@ const diseases = [
     ],
     description:
       "A Leishmaniose é uma doença causada pelo parasita Leishmania, transmitida exclusivamente pela picada da fêmea do mosquito-palha (flebotomíneo). O ciclo envolve animais: o mosquito se infecta ao picar um mamífero reservatório (como raposas silvestres ou, nas cidades, os cães domésticos) e depois transmite o parasita a um novo hospedeiro, que pode ser uma pessoa.",
+    comment:
+      "No Brasil, a Leishmaniose Tegumentar, também conhecida como 'ferida brava', é uma doença negligenciada e endêmica, com maior concentração de casos na região Norte (especialmente nos estados do Pará e Amazonas), mas também com registros importantes nas regiões Nordeste e Centro-Oeste. \n \n Sua transmissão está frequentemente associada a atividades rurais, de lazer ou trabalho em áreas de mata e desmatamento, afetando principalmente residentes dessas zonas. Acredita-se que exista uma subnotificação significativa dos casos. \n \n Para a prevenção, recomenda-se o uso de repelentes e roupas que cubram o corpo ao entardecer, horário de maior atividade do inseto transmissor (o mosquito-palha). Manter os ambientes limpos, sem entulhos e acúmulo de matéria orgânica, também é fundamental para reduzir os criadouros do vetor. \n \n Procure o médico se apresentar sintomas.",
   },
   {
     name: "Leptospirose",
@@ -809,6 +833,8 @@ const diseases = [
     ],
     description:
       "A leptospirose é uma infecção bacteriana aguda causada por bactérias do gênero Leptospira que é transmitida pelo contato da pele ou mucosas com água, lama ou solo contaminados pela urina de animais infectados, principalmente ratos, especialmente durante enchentes e inundações.",
+    comment:
+      "A leptospirose é uma doença endêmica no Brasil que se torna epidêmica nas estações chuvosas, especialmente durante e após enchentes. As regiões Sul e Sudeste concentram o maior número de casos . A doença atinge principalmente homens em idade adulta e economicamente ativa (20 a 49 anos), geralmente em áreas urbanas e ambientes domiciliares. Sua letalidade, embora média de 9% no país, pode superar 20% em surtos locais. \n \n O principal fator de risco para a doença são as enchentes e inundações, que disseminam a bactéria presente na urina de ratos e outros animais. Portanto, as medidas preventivas são cruciais, como evitar contato com água ou lama de alagamentos e, se inevitável, usar botas e luvas de proteção. \n \n Procure o médico se apresentar sintomas  como icterícia e dor nas panturrilhas. Principalmente se exposto a água de enchente ou lama contaminada.",
   },
   {
     name: "Sarampo",
@@ -825,6 +851,8 @@ const diseases = [
     ],
     description:
       "O sarampo é uma doença infecciosa e altamente contagiosa causada pelo vírus do sarampo (gênero Morbillivirus). A transmissão ocorre de pessoa para pessoa por via aérea, por meio de secreções expelidas ao tossir, falar ou respirar.",
+    comment:
+      "A situação do sarampo no Brasil segue sob vigilância epidemiológica devido ao risco de casos importados, embora o país tenha recuperado a certificação de eliminação do vírus em novembro de 2024. O cenário regional é preocupante, com transmissão intensa nas Américas — mais de 12.500 casos e 28 mortes até novembro de 2025 — o que levou a OPAS a retirar o certificado continental. \n \n No Brasil, os casos estão associados a pessoas não vacinadas infectadas em viagens internacionais, como no surto de Campos Lindos (TO), ligado a viajantes vindos da Bolívia. A manutenção do status de país livre do sarampo é ameaçada pelas baixas coberturas vacinais (80,4% em 2024 e 75,5% em 2025 para a segunda dose) e pelo risco contínuo de importação do vírus. \n \n Procure um médico se apresentar sintomas ou tiver contato com alguém diagnosticado. Se vacinar é a melhor forma de prevenção.",
   },
   {
     name: "Sífilis",
@@ -844,6 +872,8 @@ const diseases = [
     ],
     description:
       "A sífilis é uma Infecção Sexualmente Transmissível (IST) causada pela bactéria Treponema pallidum. A principal forma de transmissão é pelo contato sexual desprotegido (vaginal, anal ou oral) com uma pessoa infectada. A doença também pode ser transmitida da mãe para o bebê durante a gestação ou o parto, o que configura a sífilis congênita",
+    comment:
+      "A Sífilis é uma Infecção Sexualmente Transmissível (IST) curável, mas que segue como um grave problema de saúde pública no Brasil. O Brasil registrou, pela primeira vez em 2024, uma queda de 2.677 casos de sífilis congênita (transmitida de mãe para filho), um resultado positivo atribuído ao pré-natal e tratamento adequado. No entanto, a sífilis adquirida continua em crescimento, atingindo mais de 256 mil casos no mesmo ano e com forte expansão entre adultos acima de 40 anos. \n \n Para o controle da doença, o Ministério da Saúde reforça cinco pilares fundamentais da prevenção: uso de preservativo em todas as relações sexuais, testagem regular, realização de exames no pré-natal, tratamento correto (disponível gratuitamente no SUS) e tratamento dos parceiros para evitar a reinfecção. \n \n Procure o médico se apresentar sintomas como a presença de ferida indolor nos genitais, boca e ânus. A sífilis pode ser assintomática em algumas fases, por isso a testagem regular é fundamental.",
   },
   {
     name: "Toxoplasmose",
@@ -861,6 +891,8 @@ const diseases = [
     ],
     description:
       "A toxoplasmose é uma doença infecciosa causada pelo protozoário Toxoplasma gondii. A forma mais comum de transmissão é pela ingestão de oocistos (ovos do parasita) presentes em alimentos, água ou solo contaminados por fezes de gatos infectados. Outras vias importantes são o consumo de carne crua ou malcozida de animais portadores (especialmente suína e ovina) e a transmissão congênita, da gestante infectada para o feto",
+    comment:
+      "A toxoplasmose é uma infecção parasitária comum no Brasil, mas de grande relevância em saúde pública quando ocorre na gestação, pois pode ser transmitida ao feto, causando toxoplasmose congênita com graves sequelas neurológicas e oculares. O perfil mais frequente das gestantes infectadas envolve mulheres pardas, de 20 a 39 anos, com diagnóstico no segundo trimestre. Apesar da existência de tratamento eficaz, a subnotificação — em grande parte devido a infecções assintomáticas — e a queda recente nas taxas de cura em algumas regiões reforçam a necessidade de diagnóstico precoce no pré-natal e de acompanhamento adequado das gestantes e recém-nascidos. \n \n Para gestantes, os cuidados devem ser redobrados. O acompanhamento pré-natal é fundamental para a realização de exames e o início precoce do tratamento, disponível gratuitamente no SUS. No dia a dia, deve-se evitar o contato direto com terra de jardins ou hortas, utilizando luvas quando necessário. Na alimentação, é importante consumir apenas carnes bem cozidas, frutas e verduras cuidadosamente lavadas e leite pasteurizado. \n \n Caso haja gatos em casa, recomenda-se evitar a limpeza da caixa de areia, mantê-los dentro de casa e alimentá-los exclusivamente com ração ou alimentos bem cozidos.",
   },
   {
     name: "Tuberculose pulmonar",
@@ -881,6 +913,8 @@ const diseases = [
     ],
     description:
       "A tuberculose pulmonar é uma doença infecciosa e transmissível causada pela bactéria Mycobacterium tuberculosis (também chamada de bacilo de Koch). Sua transmissão ocorre por via respiratória (aérea), quando uma pessoa com a forma ativa da doença, ao tossir, falar ou espirrar, elimina no ar aerossóis contendo o agente infeccioso que podem ser inalados por outras pessoas.",
+    comment:
+      "Apesar de ter cura, a tuberculose permanece um grave e persistente desafio de saúde pública no Brasil, fortemente associada a determinantes sociais como pobreza, moradia inadequada e dificuldades de acesso aos serviços de saúde. Embora o tratamento seja gratuito e eficaz no SUS, com duração mínima de seis meses, a taxa de abandono ainda é elevada, o que favorece a transmissão contínua da doença e o surgimento de cepas resistentes aos medicamentos. \n \n A vacinação com BCG, aplicada ao nascer, é fundamental para proteger crianças contra as formas mais graves da tuberculose, como a tuberculose meníngea. \n \n Procure o médico se apresentar sintomas como tosse persistente por três semanas ou mais.",
   },
 ];
 
