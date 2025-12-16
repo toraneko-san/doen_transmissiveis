@@ -269,6 +269,16 @@ canvas {
   overflow-y: auto;
 }
 
+.cases-detail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.cases-detail {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .case-detail ul {
   padding-left: 1vw;
 }
