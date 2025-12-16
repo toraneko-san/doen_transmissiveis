@@ -207,85 +207,79 @@ canvas {
   border-top: 0.5vw solid #8f8f8f;
 }
 
-
 .manual-menu {
-  /* position: flex; */
-  inset: 0; 
-  margin: auto; 
-  height: 70vh;
-  width: 50vw;
-  max-width: 57.29vw;
-  max-height: 95vh;
+  height: 90vh;
+  width: 66vw;
   background-color: white;
-  border-radius: 0.104vw;
-  border-bottom: 0.781vw solid #8b6f47;
-  box-shadow: 0 2.08vw 4.17vw rgba(0, 0, 0, 0.6);
+  border-radius: 0.1vw;
+  border-bottom: 0.8vw solid #8b6f47;
+  box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.6);
   display: flex;
-  z-index: 1100;
-  overflow: hidden;
 }
 
 .manual-container {
   display: flex;
-  align-items: stretch;
+  gap: 1vw;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding: 0.521vw;
-  gap: 0.625vw;
+  padding: 1vw;
 }
 
 .manual {
-  font-family: 'Press Start 2P', system-ui;
+  font-family: "Press Start 2P", system-ui;
   display: flex;
-  gap: 0vw;
+  gap: 0.3vw;
   flex: 1;
   align-items: stretch;
+  height: 100%;
 }
 
 .page {
   width: 100%;
   height: 100%;
-  padding: 0.521vw;
+  padding: 1vw;
   overflow-y: auto;
 }
 
-.page.left {
-  border-right: 2px solid #e6dccb;
-}
-
-.page.right {
-  border-left: 2px solid #e6dccb;
+.page-separator {
+  border: 0.15vw solid #e6dccb;
+  height: 100%;
 }
 
 .side-btn {
-  width: 1.875vw;
-  height: 2.917vw;
+  width: 2.5vw;
+  height: 2.5vw;
   border-radius: 0.5%;
-  background: linear-gradient(180deg,#e7d8b8,#d6c8b0);
-  /* border: 3px solid #8b6f47; */
+  background: linear-gradient(180deg, #e7d8b8, #d6c8b0);
+  border: 0.4vw solid #8b6f47;
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.354vw;
+  font-size: 1.3vw;
   color: #3b2f22;
-  box-shadow: 0 0.3125vw 0.625vw rgba(0,0,0,0.12);
+  box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.12);
 }
 
 .side-btn::before {
-  font-family: 'Press Start 2P', system-ui;
+  font-family: "Press Start 2P", system-ui;
   font-size: 1.146vw;
-  line-height: 1;
+  color: #8b6f47;
 }
 
-.left-btn::before { content: '‹'; }
-.right-btn::before { content: '›'; }
+.left-btn::before {
+  content: "‹";
+}
+.right-btn::before {
+  content: "›";
+}
 
 .side-btn:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 0.521vw 0.938vw rgba(0,0,0,0.18);
+  box-shadow: 0 0.5vw 0.9vw rgba(0, 0, 0, 0.18);
 }
 
 .side-btn:active {
@@ -294,41 +288,41 @@ canvas {
 
 /* page typography */
 .page h3 {
-  font-family: 'Press Start 2P', system-ui;
-  font-size: 0.83vw;
-  margin-bottom: 0.63vw;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 1.3vw;
+  margin-bottom: 1vw;
+  line-height: 2vw;
   color: #2b2116;
 }
 
+.page h4 {
+  padding: 1.5vw 0 0.5vw;
+  font-size: 1vw;
+}
+
+.page p {
+  font-size: 0.8vw;
+  line-height: 1.3vw;
+}
+
+.page img {
+  display: block;
+  margin: auto;
+  width: 70%;
+  user-select: none;
+}
 
 .page ul {
-  font-size: 0.222vw;
-  padding-left: 1.111vw;
+  padding-left: 1vw;
   list-style: disc;
 }
 
-
-/* centered page number at bottom */
-.page-number {
-  position: absolute;
-  bottom: 0.521vw;
-  left: 25%;
-  transform: translateX(-50%);
-  font-size: 0.8vw;
-  color: #6b5b4a;
-  background: rgba(255,255,255,0.9);
-  padding: 0.104vw 0.417vw;
-  border-radius: 0.417vw;
-  border: 0.052vw solid rgba(0,0,0,0.06);
-}
 .page li {
   margin: 0.5vw 0;
   line-height: 1.4;
-  font-size: 0.5vw;
+  font-size: 0.8vw;
   color: #2f2f2f;
 }
-
-
 
 /* fim da pagina */
 
@@ -363,7 +357,7 @@ canvas {
   font-family: "Press Start 2P", system-ui;
   display: flex;
   justify-content: space-between;
-  gap: 0.vw;
+  gap: 0vw;
 }
 
 #diseases-list,
@@ -413,8 +407,6 @@ canvas {
   width: fit-content;
   font-size: 0.45vw;
   cursor: pointer;
-  /* display: flex; */
-  /* position: flex; */
 }
 
 .hide {
@@ -433,5 +425,5 @@ canvas {
 }
 
 .btn-selected {
- background-color: #888; 
+  background-color: #888;
 }
