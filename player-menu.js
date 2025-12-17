@@ -111,6 +111,7 @@ function toggleManual() {
     const closeBtn = document.querySelector(".manual-menu .close-btn");
     closeBtn.addEventListener("click", toggleManual);
 
+    renderSpread(currentSpread)
     moveManualMenu();
     setMenuLayer("manual");
   } else {
