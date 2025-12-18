@@ -545,7 +545,7 @@ function toggleHowTo() {
       <div class="close-container">
         <div class="close-btn">X</div>
       </div>
-      </div>
+      </div>"
     `;
 
     const closeBtn = document.querySelector(".how-to .close-btn");
