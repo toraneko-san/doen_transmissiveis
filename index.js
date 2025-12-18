@@ -203,11 +203,10 @@ function drawCasesPath() {
     const { isSelected, path, color } = cases[i];
     if (isSelected == false) continue;
 
-    
     for (let j = 0; j < path.length; j++) {
       const { x, y } = getTopXY(path[j]);
       const { row, col } = path[j];
-      
+
       ctx.beginPath();
       if (locationsMap[row][col] !== null) {
         ctx.arc(
@@ -497,13 +496,18 @@ window.addEventListener("load", prepareGame);
 //////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////
-const startButton = document.querySelector(".start-btn");
 const mainMenu = document.querySelector(".main-menu");
+const startButton = document.querySelector(".start-btn");
+
+const howToScreen = document.querySelector(".how-to-container");
+const mainHowToBtn = document.querySelector(".main-menu .how-to-btn");
+
 const playerMenu = document.querySelector(".player-menu");
 const pauseBtn = document.querySelector(".pause-btn");
 const casesBtn = document.querySelector(".cases-btn");
 const manualBtn = document.querySelector(".manual-btn");
 const answerBtn = document.querySelector(".answer-btn");
+const howToBtn = document.querySelector(".player-menu .how-to-btn");
 // const settingsBtn = document.querySelector(".settings-btn");
 
 function start() {
@@ -513,12 +517,45 @@ function start() {
   casesBtn.addEventListener("click", toggleCases);
   manualBtn.addEventListener("click", toggleManual);
   answerBtn.addEventListener("click", toggleAnswer);
+  howToBtn.addEventListener("click", toggleHowTo);
   // settingsBtn.addEventListener("click", toggleSettings);
 
   isGameStart = true;
 }
 
 startButton.addEventListener("click", start);
+
+function toggleHowTo() {
+  togglePause();
+
+  if (howToScreen.classList.contains("hide")) {
+    howToScreen.classList.remove("hide");
+
+    howToScreen.innerHTML = `
+      <div class="how-to">
+      <h2>COMO JOGAR?</h2>
+      <p><b>Patogenia</b> é um jogo cujo objetivo é descobrir a <u>doença</u> e o <u>foco de infecção</u> de um surto em uma cidade.</p>
+      <p>No começo do jogo, um local (foco de infecção) e uma doença é escolhida aleatoriamente. Quando uma pessoa visita esse local, ela é infectada e após um tempo, apresenta sintomas.</p>
+      <p>O caso então é notificado para o jogador, que consegue visualizar os <u>sintomas</u> e o <u>caminho</u> percorrido pela pessoa até apresentar os sintomas.</p>
+      <img src="./assets/howto/cases.png" />
+      <p>Analizando os caminhos, o jogador consegue descobrir o local em comum entre os casos. Analizando os sintomas e consultando o manual de doenças do jogo, o jogador consegue descobrir a doença que as pessoas adquiriram.</p>
+      <img src="./assets/howto/manual.png" />
+      <p>Na folha de resposta, o jogador pode selecionar ou riscar as doenças/locais para chegar na resposta final. Após confirmar a resposta, o jogo acaba. </p>
+      <img src="./assets/howto/answer.png" />
+      <div class="close-container">
+        <div class="close-btn">X</div>
+      </div>
+      </div>
+    `;
+
+    const closeBtn = document.querySelector(".how-to .close-btn");
+    closeBtn.addEventListener("click", toggleHowTo);
+  } else {
+    howToScreen.classList.add("hide");
+  }
+}
+
+mainHowToBtn.addEventListener("click", toggleHowTo);
 
 //////////////////////////////////////////////////////
 const casesMenu = document.querySelector(".cases-menu");
